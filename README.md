@@ -1,4 +1,4 @@
 # headneck
 
 ### Dataset Description
-[hnscc_metadata_summary.md](headneck/hnscc_metadata_summary.md)
+[Metadata Table](hnscc_metadata_summary.md)
