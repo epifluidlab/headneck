@@ -18,6 +18,10 @@
 
 [Coverage Distribution](metadata/coverage_distribution.py)
 
+### Snakemake Pipelines
+
+[Initial HNSCC Finaletoolkit Pipeline](snakemake_pipelines/basic_hnscc_finaletoolkit.smk)
+
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
 - Hailu Fu: hailu.fu@northwestern.edu
