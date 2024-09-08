@@ -20,11 +20,15 @@
 
 [Calculate GC% Pipeline](snakemake_pipelines/gc_content_script.py)
 
+[Adjust Coverage by GC% Pipeline](snakemake_pipelines/gc_content_adjustment_script.py)
+
 ### Snakemake Pipelines
 
 [Initial HNSCC Finaletoolkit Pipeline](snakemake_pipelines/basic_hnscc_finaletoolkit.smk)
 
 [Calculate GC% Pipeline](snakemake_pipelines/gc_content.smk)
+
+[Adjust Coverage by GC% Pipeline](snakemake_pipelines/gc_content_adjustment.smk)
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
