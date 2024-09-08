@@ -18,9 +18,13 @@
 
 [Coverage Distribution](metadata/coverage_distribution.py)
 
+[Calculate GC% Pipeline](snakemake_pipelines/gc_content_script.py)
+
 ### Snakemake Pipelines
 
 [Initial HNSCC Finaletoolkit Pipeline](snakemake_pipelines/basic_hnscc_finaletoolkit.smk)
+
+[Calculate GC% Pipeline](snakemake_pipelines/gc_content.smk)
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
