@@ -2,10 +2,12 @@
 
 ### Figures
 [Metadata Table](metadata/hnscc_metadata_summary.md)
+
 [Batch Figure](metadata/batch_bar_plot.png)
 
 ### Source Code
 [Metadata Table Source Code](metadata/hnscc_metadata_summary.R)
+
 [Batch Figure](metadata/batch_bar_plot.py)
 
 ### Contact
