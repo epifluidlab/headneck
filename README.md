@@ -7,6 +7,8 @@
 
 [Three Timepoint Histogram](metadata/three_tp_dist.png)
 
+[Coverage Distribution](metadata/coverage_distribution.png)
+
 ### Source Code
 [Metadata Table Source Code](metadata/hnscc_metadata_summary.R)
 
@@ -14,6 +16,7 @@
 
 [Three Timepoint Histogram](metadata/three_tp_dist.py)
 
+[Coverage Distribution](metadata/coverage_distribution.py)
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
