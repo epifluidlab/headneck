@@ -5,10 +5,15 @@
 
 [Batch Figure](metadata/batch_bar_plot.png)
 
+[Three Timepoint Histogram](metadata/three_tp_dist.png)
+
 ### Source Code
 [Metadata Table Source Code](metadata/hnscc_metadata_summary.R)
 
 [Batch Figure](metadata/batch_bar_plot.py)
+
+[Three Timepoint Histogram](metadata/three_tp_dist.py)
+
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
