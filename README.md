@@ -11,6 +11,10 @@
 
 [Coverage Volcano Plot](analysis/volcano_plot_coverage.png)
 
+[Coverage Clustermap](analysis/coverage_clustermap.png)
+
+[Train/Test Metadata](metadata/train_test_metadata.png)
+
 ### Source Code
 [Metadata Table Source Code](metadata/hnscc_metadata_summary.R)
 
@@ -25,6 +29,8 @@
 [Adjust Coverage by GC% Pipeline](snakemake_pipelines/gc_content_adjustment_script.py)
 
 [Coverage Volcano Plot](analysis/volcano_plot_coverage.py)
+
+[Train/Test Metadata](metadata/train_test_metadata.py)
 
 ### Snakemake Pipelines
 
