@@ -7,7 +7,7 @@ df = pd.read_csv(file_path)[["Institute", "Treatment Response"]].fillna("Missing
 df_counts = df.groupby(["Institute", "Treatment Response"]).size().unstack(fill_value=0)
 order = ["Responder", "Non-Responder", "Missing"]
 df_counts = df_counts[order]
-ax = df_counts.plot(kind='bar', stacked=True, figsize=(5, 5), color=['#377eb8', '#add8e6', '#e41a1c'])
+ax = df_counts.plot(kind='bar', stacked=True, figsize=(5, 5), color=['#add8e6', '#377eb8', '#e41a1c'])
 ax.set_xlabel('Institute', fontsize=12, labelpad=30)
 ax.set_ylabel('Number of Samples', fontsize=12)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=0, ha='center', fontsize=10)
