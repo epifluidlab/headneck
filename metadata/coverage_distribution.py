@@ -48,9 +48,9 @@ for i, institute in enumerate(institutes):
     plt.scatter(i + jitter, data, s=10, color='black', alpha=0.6)
 
     for x, y, label in zip(i + jitter, data, ids):
-        if y + 1 < lower_whisker and label != "Pilot2_77":
+        if y + 0.5 < lower_whisker and label != "Pilot2_77" and  label != "Pilot2_68":
             plt.text(x + 0.5, y, label, fontsize=8, ha='center', va='bottom')
-        elif y + 1 < lower_whisker:
+        elif y + 0.5 < lower_whisker:
             plt.text(x - 0.4, y, label, fontsize=8, ha='center', va='bottom')
 
 plt.yscale('log')
@@ -62,3 +62,4 @@ plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
 plt.savefig('coverage_distribution.png', dpi=1000, bbox_inches='tight')
+
