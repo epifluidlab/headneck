@@ -9,6 +9,8 @@
 
 [Coverage Distribution](metadata/coverage_distribution.png)
 
+[Coverage Volcano Plot](analysis/volcano_plot_coverage.png)
+
 ### Source Code
 [Metadata Table Source Code](metadata/hnscc_metadata_summary.R)
 
@@ -21,6 +23,8 @@
 [Calculate GC% Pipeline](snakemake_pipelines/gc_content_script.py)
 
 [Adjust Coverage by GC% Pipeline](snakemake_pipelines/gc_content_adjustment_script.py)
+
+[Coverage Volcano Plot](analysis/volcano_plot_coverage.py)
 
 ### Snakemake Pipelines
 
