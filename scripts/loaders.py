@@ -1,8 +1,14 @@
 import os
 import glob
+import patsy
 import numpy as np
 import pandas as pd
-from inmoose.pycombat import pycombat_norm
+import seaborn as sns
+from patsy.contrasts import Sum
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.preprocessing import StandardScaler
 
 class HNSCCFeatureHandler:
 	def __init__(self, metadata_file: str, valid_indices_file: str):
@@ -142,19 +148,53 @@ class HNSCCFeatureHandler:
 		return df[col_name]
 
 	def batch_correct(self):
+		def limma(exprs, covariate_matrix, design_matrix, rcond=1e-8):
+			design_batch = np.hstack((covariate_matrix, design_matrix))
+			coefficients, _, _, _ = np.linalg.lstsq(design_batch, exprs.T, rcond=rcond)
+			beta = coefficients[-design_matrix.shape[1]:]
+			return exprs - design_matrix.dot(beta).T
+		def get_dmatrix(categories):
+			contrast = Sum()
+			levels = list(categories.categories)
+			contrast_matrix = contrast.code_without_intercept(levels).matrix
+			if len(levels) == len(contrast_matrix):
+				contrast_dict = {level: contrast_matrix[i] for i, level in enumerate(levels)}
+			else:
+				print("Error: The lengths of levels and contrast_matrix do not match.")
+			
+			dmatrix = []
+			for element in categories:
+				dmatrix.append(contrast_dict[element])
+			return np.array(dmatrix)
 		if self.data is None:
 			raise ValueError("No data loaded yet. Load data using the merge_feature_metadata method.")
 		raw_data = self.get_raw_features()
 		metadata_cols = self.data.drop(columns=raw_data.columns)
 		raw_data = raw_data.T
-		institute = self.get_metadata_col('Institute')
-		#pilot = self.get_metadata_col('Pilot')==1
-		#batch = self.get_metadata_col('Batches')
-		treatment = list(self.get_metadata_col('Treatment Response'))
-		corrected_features = pycombat_norm(raw_data, institute, covar_mod=treatment).T
-		#corrected_features = pycombat_norm(corrected_features, batch, covar_mod=treatment)
-		#corrected_features = pycombat_norm(corrected_features, pilot, covar_mod=treatment).T
-		self.data = pd.concat([metadata_cols, corrected_features], axis=1)
+		batch1 = pd.Categorical(self.get_metadata_col('Institute'))
+		#batch2 = pd.Categorical(self.get_metadata_col('Pilot'))
+		batch3 = pd.Categorical(self.get_metadata_col('WGS Library Prep Date'))
+		batch4 = pd.Categorical(self.get_metadata_col('cfDNA Isolation Date'))
+		batch_df = pd.DataFrame({
+			'Institute': batch1.codes,
+			#'Pilot': batch2.codes,
+			'Library_Prep_Date': batch3.codes,
+			'cfDNA_Isolation_Date': batch4.codes,
+			'Treatment_Response': pd.Categorical(self.get_metadata_col('Treatment Response')).codes
+		})
+		print(batch_df.corr())
+
+		contrast_key = {
+			'Institute': get_dmatrix(batch1),
+			#'Pilot': get_dmatrix(batch2),
+			'Library_Prep_Date': get_dmatrix(batch3),
+			'cfDNA_Isolation_Date': get_dmatrix(batch4),
+		}
+		design = np.concatenate([contrast_key[key] for key in contrast_key], axis=1)
+		covariates = get_dmatrix(pd.Categorical(self.get_metadata_col('Treatment Response')))
+		corrected_data = limma(raw_data, covariates, design)
+		self.data = pd.concat([metadata_cols, corrected_data.T], axis=1)
+		return self.data
 
 	def filter_locations(self, locations_file: str):
 		locations = pd.read_csv(locations_file, delimiter='\t', header=None, names=['chr', 'start', 'end'])
@@ -162,4 +202,40 @@ class HNSCCFeatureHandler:
 		matching_columns = [col for col in self.data.columns if col in location_strings or not col.startswith('chr')]
 		return self.data[matching_columns]
 
-			
+	def pca(self, label: str, scale=True, save_path: str = None, plot_ellipses=False):
+		if self.data is None:
+			raise ValueError("No data loaded yet. Load data using the merge_feature_metadata method.")
+		raw_data = self.get_raw_features()
+		pca = PCA(n_components=2)
+		scaler = StandardScaler() if scale==True else FunctionTransformer(lambda x: x)
+		X =  pd.DataFrame(scaler.fit_transform(raw_data), index=raw_data.index, columns=raw_data.columns)
+		pca_data = pca.fit_transform(X)
+		pca_df = pd.DataFrame(pca_data, columns=['PC1', 'PC2'])
+		pca_df.index = X.index
+		pca_df[f'{label}'] = self.get_metadata_col(label)
+		unique_labels = pca_df[label].unique()
+		colors = sns.color_palette("tab10", len(unique_labels))
+		color_map = {label: colors[i] for i, label in enumerate(unique_labels)}
+		plt.figure(figsize=(6, 3))
+		for label_l, color in color_map.items():
+			subset = pca_df[pca_df[label] == label_l]
+			plt.scatter(subset['PC1'], subset['PC2'], c=color, label=label_l, s=2)
+			if plot_ellipses:
+				mean = subset[['PC1', 'PC2']].mean()
+				cov = subset[['PC1', 'PC2']].cov()
+				lambda_, v = np.linalg.eig(cov)
+				lambda_ = np.sqrt(lambda_)
+				ellipse = plt.matplotlib.patches.Ellipse(xy=mean, width=lambda_[0]*2, height=lambda_[1]*2, angle=np.rad2deg(np.arccos(v[0, 0])), edgecolor=color, facecolor=color, alpha=0.2, linewidth=1)
+				plt.gca().add_patch(ellipse)
+		plt.xlabel('PC1')
+		plt.ylabel('PC2')
+		plt.ylim(-25, 25)
+		plt.legend(title=label, bbox_to_anchor=(1.05, 1), loc='upper left')
+		plt.gca().spines['top'].set_visible(False)
+		plt.gca().spines['right'].set_visible(False)
+		plt.gca().spines['left'].set_visible(True)
+		plt.gca().spines['bottom'].set_visible(True)
+		plt.tight_layout()
+		if save_path is not None:
+			plt.savefig(save_path, dpi=1000)
+		plt.show()
