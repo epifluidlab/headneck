@@ -30,8 +30,8 @@ def generate_cv_splits(file_path, output_dir, n_splits=10):
         val_split = train_ids[val_idx]
 
         # Save train and validation splits to separate files
-        train_file = os.path.join(output_dir, f'train_fold_{fold}.txt')
-        val_file = os.path.join(output_dir, f'val_fold_{fold}.txt')
+        train_file = os.path.join(output_dir, f'train_fold_adjwk1_{fold}.txt')
+        val_file = os.path.join(output_dir, f'val_fold_adjwk1_{fold}.txt')
 
         with open(train_file, 'w') as f:
             f.write('\n'.join(train_split))
@@ -41,5 +41,4 @@ def generate_cv_splits(file_path, output_dir, n_splits=10):
 
     print(f"Saved {n_splits}-fold CV splits to {output_dir}")
 
-# Example usage:
-# generate_cv_splits('train_ids.txt', 'cv_splits')
+generate_cv_splits('/projects/b1198/epifluidlab/ravi/0130/headneck/notebooks/lists/train_ids_adjwk1.txt', '/projects/b1198/epifluidlab/ravi/0130/headneck/notebooks/lists')
