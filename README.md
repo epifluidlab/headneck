@@ -4,17 +4,17 @@
 
 |       Main Figures       |   Supplementary Figures   |   Supplementary Tables   |
 |:------------------------:|:-------------------------:|:------------------------:|
-|       [T1](./T1)         |       [SF1](./SF1)        |       [ST1](./ST1)       |
-|       [F1](./F1)         |       [SF2](./SF2)        |       [ST2](./ST2)       |
-|       [F2](./F2)         |       [SF3](./SF3)        |       [ST3](./ST3)       |
-|       [F3](./F3)         |       [SF4](./SF4)        |       [ST4](./ST4)       |
-|       [F4](./F4)         |       [SF5](./SF5)        |       [ST5](./ST5)       |
-|                          |       [SF7](./SF7)        |       [ST6](./ST6)       |
-|                          |       [SF8](./SF8)        |       [ST7](./ST7)       |
-|                          |       [SF9](./SF9)        |                          |
-|                          |      [SF10](./SF10)       |                          |
-|                          |      [SF11](./SF11)       |                          |
-|                          |      [SF12](./SF12)       |                          |
+|       [T1](./Main_Tables/T1)         |       [SF1](./Supplementary_Figures/SF1)        |       [ST1](./Supplementary_Tables/ST1)       |
+|       [F1](./Main_Figures/F1)         |       [SF2](./Supplementary_Figures/SF2)        |       [ST2](./Supplementary_Tables/ST2)       |
+|       [F2](./Main_Figures/F2)         |       [SF3](./Supplementary_Figures/SF3)        |       [ST3](./Supplementary_Tables/ST3)       |
+|       [F3](./Main_Figures/F3)         |       [SF4](./Supplementary_Figures/SF4)        |       [ST4](./Supplementary_Tables/ST4)       |
+|       [F4](./Main_Figures/F4)         |       [SF5](./Supplementary_Figures/SF5)        |       [ST5](./Supplementary_Tables/ST5)       |
+|                          |       [SF7](./Supplementary_Figures/SF7)        |       [ST6](./Supplementary_Tables/ST6)       |
+|                          |       [SF8](./Supplementary_Figures/SF8)        |       [ST7](./Supplementary_Tables/ST7)       |
+|                          |       [SF9](./Supplementary_Figures/SF9)        |                          |
+|                          |      [SF10](./Supplementary_Figures/SF10)       |                          |
+|                          |      [SF11](./Supplementary_Figures/SF11)       |                          |
+|                          |      [SF12](./Supplementary_Figures/SF12)       |                          |
 
 ### Citation
 Bandaru R, Fu H, Zheng H, Li W, Gulati S, Hildeman D, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2025). *Cell-free DNA fragmentation patterns reveal the responses to the pembrolizumab immunotherapy in head and neck squamous cell carcinoma*. **[Journal]**. ![DOI](https://img.shields.io/badge/DOI-TBD-pink?style=flat-square)
