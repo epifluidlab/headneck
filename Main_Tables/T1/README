@@ -1,0 +1,5 @@
+1. Ran hnscc_metadata_summary.R
+2. Obtained hnscc_metadata_summary.md
+3. Transferred data to metadata_table.ipynb
+4. Obtained metadata_table.html
+5. Converted metadata_table.html to .pdf
