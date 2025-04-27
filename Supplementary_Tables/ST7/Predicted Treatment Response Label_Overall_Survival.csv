@@ -1,0 +1,17 @@
+Reference,Group,MST (month),Hazard ratio,95% CI,P value
+Non-Responder (High),Non-Responder (High),-,1,-,-
+Non-Responder (High),Non-Responder (Intermediate),inf,0.277,0.079–0.977,0.033
+Non-Responder (High),Responder (High),52.1,0.647,0.246–1.705,0.375
+Non-Responder (High),Responder (Intermediate),inf,0.263,0.085–0.819,0.014
+Non-Responder (Intermediate),Non-Responder (High),24.2,3.607,1.023–12.718,0.033
+Non-Responder (Intermediate),Non-Responder (Intermediate),-,1,-,-
+Non-Responder (Intermediate),Responder (High),52.1,2.315,0.578–9.264,0.222
+Non-Responder (Intermediate),Responder (Intermediate),inf,0.880,0.195–3.968,0.868
+Responder (High),Non-Responder (High),24.2,1.545,0.587–4.070,0.375
+Responder (High),Non-Responder (Intermediate),inf,0.432,0.108–1.729,0.222
+Responder (High),Responder (High),-,1,-,-
+Responder (High),Responder (Intermediate),inf,0.396,0.111–1.410,0.139
+Responder (Intermediate),Non-Responder (High),24.2,3.801,1.221–11.826,0.014
+Responder (Intermediate),Non-Responder (Intermediate),inf,1.136,0.252–5.122,0.868
+Responder (Intermediate),Responder (High),52.1,2.524,0.709–8.989,0.139
+Responder (Intermediate),Responder (Intermediate),-,1,-,-

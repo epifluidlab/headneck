@@ -917,6 +917,7 @@ class HNSCCFeatureHandler:
 		pdl1_ihc = pdl1_ihc[pdl1_ihc.index.isin(class_dictionary.keys())]
 		
 		# Create DataFrame
+		pairwise_results = {}
 		merged_df = pd.concat([surv_time, surv_status, treatment_response, relapse_time, relapse_status, pdl1_ihc], axis=1)
 		merged_df.columns = ['Survival Months', 'E_Survival', 'Stratification', 'Relapse Months', 'E_Relapse', 'PDL1 IHC']
 		merged_df['Predicted Treatment Response'] = merged_df.index.map(class_dictionary)
@@ -951,7 +952,6 @@ class HNSCCFeatureHandler:
 		# Set up for two event types: Survival and Relapse
 		for row, event_type in enumerate([("E_Survival", "Survival Months"), ("E_Relapse", "Relapse Months")]):
 			for col, (group_col, colors, label) in enumerate([
-				#('Stratification', colors_strat, ''),
 				('Predicted Treatment Response and Stratification', colors_pred_strat, ''),
 				('IHC and Stratification', colors_pdl1_strat, '')
 			]):
@@ -972,44 +972,33 @@ class HNSCCFeatureHandler:
 				unique_groups = sorted(merged_df[group_col].unique())
 				n = len(unique_groups)
 				# Build an n x n matrix for results
-				matrix_data = [["" for _ in range(n)] for _ in range(n)]
+				matrix_data = [[np.nan for _ in range(n)] for _ in range(n)]
 				
-				# # Fill in the matrix: diagonal as "-" and off-diagonals with the test result.
-				# for i in range(n):
-				# 	for j in range(n):
-				# 		if i == j:
-				# 			matrix_data[i][j] = "–"  # or you can use an empty string if preferred
-				# 		else:
-				# 			# To avoid redundant computation, only compute when i < j, then mirror
-				# 			if i < j:
-				# 				mask1 = merged_df[group_col] == unique_groups[i]
-				# 				mask2 = merged_df[group_col] == unique_groups[j]
-				# 				results = logrank_test(
-				# 					merged_df[event_type[1]][mask1],
-				# 					merged_df[event_type[1]][mask2],
-				# 					event_observed_A=merged_df[event_type[0]][mask1],
-				# 					event_observed_B=merged_df[event_type[0]][mask2]
-				# 				)
-				# 				p_value = results.p_value
-				# 				if p_value < 0.001:
-				# 					cell_text = f"{p_value:.3f} ***"
-				# 				elif p_value < 0.01:
-				# 					cell_text = f"{p_value:.3f} **"
-				# 				elif p_value < 0.05:
-				# 					cell_text = f"{p_value:.2f} *"
-				# 				else:
-				# 					cell_text = f"{p_value:.3f} (ns)"
-				# 				matrix_data[i][j] = cell_text
-				# 				matrix_data[j][i] = cell_text  # mirror the result
-							
-				# # Add the pairwise matrix table below the current axis.
-				# table = axes[row, col].table(cellText=matrix_data,
-				# 							rowLabels=unique_groups,
-				# 							colLabels=unique_groups,
-				# 							loc='center',
-    			# 							bbox=[0.0, -0.4, 1.0, 0.25])
-				# table.auto_set_font_size(False)
-				# table.set_fontsize(8)
+				for i in range(n):
+					for j in range(n):
+						mask1 = merged_df[group_col] == unique_groups[i]
+						mask2 = merged_df[group_col] == unique_groups[j]
+						results = logrank_test(
+							merged_df[event_type[1]][mask1],
+							merged_df[event_type[1]][mask2],
+							event_observed_A=merged_df[event_type[0]][mask1],
+							event_observed_B=merged_df[event_type[0]][mask2]
+						)
+						p_value = results.p_value
+						if p_value < 0.001:
+							cell_text = f"{p_value:.4f}"
+						elif p_value < 0.01:
+							cell_text = f"{p_value:.3f}"
+						elif p_value < 0.05:
+							cell_text = f"{p_value:.2f}"
+						else:
+							cell_text = f"{p_value:.2f}"
+						matrix_data[i][j] = float(cell_text)
+				pairwise_results[(event_type[0], group_col)] = pd.DataFrame(
+					matrix_data,
+					index=unique_groups,
+					columns=unique_groups
+				)
 				
 				axes[row, col].set_ylim(0, 1.03)
 				if col == 0:
@@ -1045,12 +1034,13 @@ class HNSCCFeatureHandler:
 		
 		# Titles for each subplot
 		#axes[0, 0].set_title("Survival by Stratification", fontsize=10)
-		axes[0, 0].set_title("Overall Survival\n(Predicted Response)", fontsize=10)
+		axes[0, 0].set_title(f"Overall Survival\n({name} Response)", fontsize=10)
 		axes[0, 1].set_title("Overall Survival\n(PDL1 IHC)", fontsize=10)
 		#axes[1, 0].set_title("Disease-Free Survival\nby Stratification", fontsize=10)
-		axes[1, 0].set_title("Disease-Free Survival\n(Predicted Response)", fontsize=10)
+		axes[1, 0].set_title(f"Disease-Free Survival\n({name} Response)", fontsize=10)
 		axes[1, 1].set_title("Disease-Free Survival\n(PDL1 IHC)", fontsize=10)
 		
 		plt.tight_layout()
 		plt.savefig(f"{name}.pdf", dpi=300)
 		plt.show()
+		return pairwise_results

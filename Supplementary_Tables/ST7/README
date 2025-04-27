@@ -1,0 +1,1 @@
+The survival_data.csv was created manually from the predicted values from TABPFN_ML.ipynb (F3) and the tumor fraction "predictions" from survival_curve.ipynb (F4).

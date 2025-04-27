@@ -1,0 +1,17 @@
+Reference,Group,MST (month),Hazard ratio,95% CI,P value
+High TF (High),High TF (High),-,1,-,-
+High TF (High),High TF (Intermediate),inf,0.131,0.017–1.040,0.024
+High TF (High),Low TF (High),29.1,1.824,0.737–4.514,0.187
+High TF (High),Low TF (Intermediate),inf,0.637,0.226–1.797,0.390
+High TF (Intermediate),High TF (High),inf,7.614,0.961–60.294,0.024
+High TF (Intermediate),High TF (Intermediate),-,1,-,-
+High TF (Intermediate),Low TF (High),29.1,12.588,1.598–99.185,0.002
+High TF (Intermediate),Low TF (Intermediate),inf,4.685,0.563–38.973,0.115
+Low TF (High),High TF (High),inf,0.548,0.222–1.357,0.187
+Low TF (High),High TF (Intermediate),inf,0.079,0.010–0.626,0.002
+Low TF (High),Low TF (High),-,1,-,-
+Low TF (High),Low TF (Intermediate),inf,0.358,0.129–0.996,0.040
+Low TF (Intermediate),High TF (High),inf,1.570,0.556–4.431,0.390
+Low TF (Intermediate),High TF (Intermediate),inf,0.213,0.026–1.776,0.115
+Low TF (Intermediate),Low TF (High),29.1,2.795,1.004–7.780,0.040
+Low TF (Intermediate),Low TF (Intermediate),-,1,-,-
