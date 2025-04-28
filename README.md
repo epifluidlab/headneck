@@ -17,7 +17,7 @@
 |                          |      [SF12](./Supplementary_Figures/SF12)       |                          |
 
 ### Citation
-Bandaru R, Fu H, Zheng H, Li W, Gulati S, Hildeman D, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2025). *Cell-free DNA fragmentation patterns reveal the responses to the pembrolizumab immunotherapy in head and neck squamous cell carcinoma*. **[Journal]**. ![DOI](https://img.shields.io/badge/DOI-TBD-pink?style=flat-square)
+Bandaru R, Fu H, Zheng H, Li W, Gulati S, Hildeman D, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2025). *Genome-Wide Variations of End Motif in Cell-Free DNA Fragments Distinguish Immunotherapy Responders from Non-Responders in Head and Neck Cancer: A Multi-Institute Prospective Study*. **[Journal]**. ![DOI](https://img.shields.io/badge/DOI-TBD-pink?style=flat-square)
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
