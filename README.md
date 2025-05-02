@@ -9,8 +9,9 @@
 |       [F2](./Main_Figures/F2)         |       [SF3](./Supplementary_Figures/SF3)        |       [ST3](./Supplementary_Tables/ST3)       |
 |       [F3](./Main_Figures/F3)         |       [SF4](./Supplementary_Figures/SF4)        |       [ST4](./Supplementary_Tables/ST4)       |
 |       [F4](./Main_Figures/F4)         |       [SF5](./Supplementary_Figures/SF5)        |       [ST5](./Supplementary_Tables/ST5)       |
-|                          |       [SF7](./Supplementary_Figures/SF7)        |       [ST6](./Supplementary_Tables/ST6)       |
-|                          |       [SF8](./Supplementary_Figures/SF8)        |       [ST7](./Supplementary_Tables/ST7)       |
+|                          |       [SF6](./Supplementary_Figures/SF6)        |       [ST6](./Supplementary_Tables/ST6)       |
+|                          |       [SF7](./Supplementary_Figures/SF7)        |       [ST7](./Supplementary_Tables/ST7)       |
+|                          |       [SF8](./Supplementary_Figures/SF8)        |                          |
 |                          |       [SF9](./Supplementary_Figures/SF9)        |                          |
 |                          |      [SF10](./Supplementary_Figures/SF10)       |                          |
 |                          |      [SF11](./Supplementary_Figures/SF11)       |                          |

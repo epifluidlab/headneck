@@ -1,0 +1,8 @@
+1. Generated 500kb windows sliding every 10kb.
+2. Ran the end motifs interval calculation using FinaleToolkit.
+3. Ran the MDS calculation using FinaleToolkit.
+4. Replaced the intervals with the midpoint of the 500kb interval, +/- 5kb.
+5. Normalized and performed batch correction, obtained .bw files for {treatment_response}_{visit} by averaging signals in bins. (located in F2)
+6. Used Ensembl BioMart to identify locations of genes associated with complement system from ST4's rMDS_cluster1_GO.csv and hemoglobin binding from ST4's rMDS_cluster2_GO.csv.
+7. Chose the interval chr1:196,250,000-197,250,000 for region of high complement system gene density, and chr11:4,750,000-5,750,0000 for region of high hemoglobin binding gene density.
+8. Plotted using IGV.
