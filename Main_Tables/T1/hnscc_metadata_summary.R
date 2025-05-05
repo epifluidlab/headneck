@@ -2,13 +2,14 @@ library(arsenal)
 library(readr)
 library(dplyr)
 
+setwd("/projects/b1198/epifluidlab/ravi/0425/headneck/Main_Tables/T1")
 file_path <- '../../Supplementary_Tables/ST1/RAW_HNSCC_METADATA_NEW.csv'
 df <- read_csv(file_path)
 
-selected_columns <- c("Patient Number", "Diagnosis", "Age", "Gender", "Smoking", "Alcohol", "Stratification", "Treatment Response")
+selected_columns <- c("Patient Number", "Diagnosis", "Age", "Gender", "Race", "Ethnicity", "HPV", "Smoking", "Alcohol", "Stratification", "Treatment Response")
 df_selected <- df[selected_columns]
 df_selected <- distinct(df_selected)
-selected_columns <- c("Diagnosis", "Age", "Gender", "Smoking", "Alcohol", "Stratification", "Treatment Response")
+selected_columns <- c("Diagnosis", "Age", "Gender", "Smoking", "Alcohol", "Race", "Ethnicity", "HPV", "Stratification", "Treatment Response")
 df_selected <- df_selected[selected_columns]
 
 df_selected$`Treatment Response` <- factor(df_selected$`Treatment Response`, levels = c("Responder", "Non-Responder", "Missing"))
