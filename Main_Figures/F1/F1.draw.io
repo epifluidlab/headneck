@@ -1,10 +1,10 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Safari/605.1.15" version="26.2.14">
   <diagram name="Page-1" id="RnLOujTq4UQYLH6lgoQO">
-    <mxGraphModel dx="1181" dy="681" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" adaptiveColors="none">
+    <mxGraphModel dx="2066" dy="1192" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" adaptiveColors="none">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="-CjRuXy85uaz6GuDeEmA-102" value="Study Cohort&#xa;(n = 68 patient, 185 samples)" style="text;align=center;verticalAlign=middle;rounded=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontStyle=5;fontSize=11;" parent="1" vertex="1">
+        <mxCell id="-CjRuXy85uaz6GuDeEmA-102" value="Study Cohort&#xa;(n = 68 patients, 185 samples)" style="text;align=center;verticalAlign=middle;rounded=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontStyle=5;fontSize=11;" parent="1" vertex="1">
           <mxGeometry x="46" y="15" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="-CjRuXy85uaz6GuDeEmA-103" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=1;rounded=0;" parent="1" edge="1">
@@ -569,7 +569,7 @@
         <mxCell id="4-4I5rKA6KfIaQXoA2Et-6" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;Adjusted Week 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="261" y="38" width="79" height="4" as="geometry" />
         </mxCell>
-        <mxCell id="ZBGCLJP5AHXo37WjZI82-1" value="" style="endArrow=blockThin;html=1;rounded=0;endFill=0;" edge="1" parent="1">
+        <mxCell id="ZBGCLJP5AHXo37WjZI82-1" value="" style="endArrow=blockThin;html=1;rounded=0;endFill=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="179" y="184" as="sourcePoint" />
             <mxPoint x="203" y="184" as="targetPoint" />
