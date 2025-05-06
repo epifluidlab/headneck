@@ -12,10 +12,10 @@
 |                          |       [SF6](./Supplementary_Figures/SF6)        |       [ST6](./Supplementary_Tables/ST6)       |
 |                          |       [SF7](./Supplementary_Figures/SF7)        |       [ST7](./Supplementary_Tables/ST7)       |
 |                          |       [SF8](./Supplementary_Figures/SF8)        |                          |
-|                          |       [SF9](./Supplementary_Figures/SF9)        |                          |
-|                          |      [SF10](./Supplementary_Figures/SF10)       |                          |
-|                          |      [SF11](./Supplementary_Figures/SF11)       |                          |
-|                          |      [SF12](./Supplementary_Figures/SF12)       |                          |
+|                          |               |                          |
+|                          |             |                          |
+|                          |             |                          |
+|                          |            |                          |
 
 ### Citation
 Bandaru R, Fu H, Zheng H, Li W, Gulati S, Hildeman D, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2025). *Genome-Wide Variations of End Motif in Cell-Free DNA Fragments Distinguish Immunotherapy Responders from Non-Responders in Head and Neck Cancer: A Multi-Institute Prospective Study*. **[Journal]**. ![DOI](https://img.shields.io/badge/DOI-TBD-pink?style=flat-square)

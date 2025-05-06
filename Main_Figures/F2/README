@@ -11,5 +11,5 @@ F2F:
 6. Obtained the merged F2F.merged.rMDS.cluster3.bed by merging adjacent intervals of ST3's rMDS_cluster3.tsv
 7. Chose the interval chr9:133000000-137500000 for the longest contiguous region.
 8. Used Ensembl BioMart to identify locations of genes associated with keratinization from ST4's rMDS_cluster3_GO.csv
-9. Chose the interval chr12:52250000-53250000 for a region of high keratinization gene density.
+9. Chose the interval chr12:52,000,000-53,000,000 for a region of high keratinization gene density.
 10. Plotted using IGV.

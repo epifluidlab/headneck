@@ -1,0 +1,48 @@
+DFS_NO_TIME_EFFECT
+Call:
+coxph(formula = Surv(time_to_event, event) ~ age + gender + ethnicity + 
+    diagnosis + hpv + smoking + alcohol + stratification + response, 
+    data = df_patient_DFS)
+
+  n= 68, number of events= 23 
+
+                   coef exp(coef) se(coef)      z Pr(>|z|)  
+age            -0.01720   0.98295  0.01955 -0.880   0.3788  
+gender         -0.06730   0.93492  0.47796 -0.141   0.8880  
+ethnicity       2.17280   8.78286  1.19199  1.823   0.0683 .
+diagnosis       1.92056   6.82475  0.94190  2.039   0.0414 *
+hpv             0.28637   1.33158  0.44815  0.639   0.5228  
+smoking        -0.45583   0.63392  0.50272 -0.907   0.3645  
+alcohol        -0.50319   0.60460  0.61874 -0.813   0.4161  
+stratification  1.18522   3.27140  0.54221  2.186   0.0288 *
+response        1.19915   3.31731  0.53080  2.259   0.0239 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+               exp(coef) exp(-coef) lower .95 upper .95
+age               0.9829     1.0174    0.9460     1.021
+gender            0.9349     1.0696    0.3664     2.386
+ethnicity         8.7829     0.1139    0.8492    90.836
+diagnosis         6.8248     0.1465    1.0773    43.235
+hpv               1.3316     0.7510    0.5532     3.205
+smoking           0.6339     1.5775    0.2367     1.698
+alcohol           0.6046     1.6540    0.1798     2.033
+stratification    3.2714     0.3057    1.1303     9.468
+response          3.3173     0.3014    1.1721     9.389
+
+Concordance= 0.795  (se = 0.04 )
+Likelihood ratio test= 24.25  on 9 df,   p=0.004
+Wald test            = 17.43  on 9 df,   p=0.04
+Score (logrank) test = 21.91  on 9 df,   p=0.009
+
+                 chisq df    p
+age             1.6257  1 0.20
+gender          0.5595  1 0.45
+ethnicity       1.9155  1 0.17
+diagnosis       0.6116  1 0.43
+hpv             0.1583  1 0.69
+smoking         0.0355  1 0.85
+alcohol         0.1294  1 0.72
+stratification  1.3963  1 0.24
+response        4.2036  1 0.04
+GLOBAL         11.4398  9 0.25

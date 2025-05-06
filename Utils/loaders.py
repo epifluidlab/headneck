@@ -895,65 +895,81 @@ class HNSCCFeatureHandler:
 				all_data, self.hold_data[['Patient Number', 'Type of Visit', 'Treatment Response',
 										'Predicted Treatment Probabilities', 'Predicted Treatment Response']])
 		
-	def survival_curve(self, class_dictionary, name):
+	def survival_curve(self, response_dictionary, tumor_dictionary, name):
 		if self.data is None:
 			raise ValueError("No data loaded yet. Load data using the merge_feature_metadata method.")
-		
+		if set(response_dictionary.keys()) != set(tumor_dictionary.keys()):
+			missing_in_response = set(tumor_dictionary.keys()) - set(response_dictionary.keys())
+			missing_in_tumor = set(response_dictionary.keys()) - set(tumor_dictionary.keys())
+			
+			raise ValueError(f"Key mismatch!\n"
+							f"Missing in response_dictionary: {missing_in_response}\n"
+							f"Missing in tumor_dictionary: {missing_in_tumor}")
 		# Get survival and relapse data
 		surv_time = self.get_metadata_col('Survival Months', df=pd.concat([self.data, self.hold_data], axis=0))
 		surv_status = self.get_metadata_col('E_Survival', df=pd.concat([self.data, self.hold_data], axis=0))
 		treatment_response = self.get_metadata_col('Stratification', df=pd.concat([self.data, self.hold_data], axis=0))
+		diagnosis = self.get_metadata_col('Diagnosis', df=pd.concat([self.data, self.hold_data], axis=0))
+		age = self.get_metadata_col('Age', df=pd.concat([self.data, self.hold_data], axis=0))
+		gender = self.get_metadata_col('Gender', df=pd.concat([self.data, self.hold_data], axis=0))
+		smoking = self.get_metadata_col('Smoking', df=pd.concat([self.data, self.hold_data], axis=0))
+		alcohol = self.get_metadata_col('Alcohol', df=pd.concat([self.data, self.hold_data], axis=0))
+		race = self.get_metadata_col('Race', df=pd.concat([self.data, self.hold_data], axis=0))
+		ethnicity = self.get_metadata_col('Ethnicity', df=pd.concat([self.data, self.hold_data], axis=0))
+		hpv = self.get_metadata_col('HPV', df=pd.concat([self.data, self.hold_data], axis=0))
+		truth_response = self.get_metadata_col('Treatment Response', df=pd.concat([self.data, self.hold_data], axis=0))
+
 		relapse_time = self.get_metadata_col('Relapse Months', df=pd.concat([self.data, self.hold_data], axis=0))
 		relapse_status = self.get_metadata_col('E_Relapse', df=pd.concat([self.data, self.hold_data], axis=0))
 		pdl1_ihc = self.get_metadata_col('PDL1 IHC', df=pd.concat([self.data, self.hold_data], axis=0))
 		pdl1_ihc = pdl1_ihc.replace({0: "0", 1: "1-19", 2: ">20"})
 		
 		# Filter by class_dictionary
-		surv_time = surv_time[surv_time.index.isin(class_dictionary.keys())]
-		surv_status = surv_status[surv_status.index.isin(class_dictionary.keys())].astype(bool)
-		treatment_response = treatment_response[treatment_response.index.isin(class_dictionary.keys())]
-		relapse_time = relapse_time[relapse_time.index.isin(class_dictionary.keys())]
-		relapse_status = relapse_status[relapse_status.index.isin(class_dictionary.keys())].astype(bool)
-		pdl1_ihc = pdl1_ihc[pdl1_ihc.index.isin(class_dictionary.keys())]
+		surv_time = surv_time[surv_time.index.isin(response_dictionary.keys())]
+		surv_status = surv_status[surv_status.index.isin(response_dictionary.keys())].astype(bool)
+		treatment_response = treatment_response[treatment_response.index.isin(response_dictionary.keys())]
+		relapse_time = relapse_time[relapse_time.index.isin(response_dictionary.keys())]
+		relapse_status = relapse_status[relapse_status.index.isin(response_dictionary.keys())].astype(bool)
+		pdl1_ihc = pdl1_ihc[pdl1_ihc.index.isin(response_dictionary.keys())]
 		
 		# Create DataFrame
 		pairwise_results = {}
-		merged_df = pd.concat([surv_time, surv_status, treatment_response, relapse_time, relapse_status, pdl1_ihc], axis=1)
-		merged_df.columns = ['Survival Months', 'E_Survival', 'Stratification', 'Relapse Months', 'E_Relapse', 'PDL1 IHC']
-		merged_df['Predicted Treatment Response'] = merged_df.index.map(class_dictionary)
-		merged_df['Predicted Treatment Response and Stratification'] = (
-			merged_df['Predicted Treatment Response'].astype(str) + "_" + 
-			merged_df['Stratification'].astype(str)
-		)
-		merged_df['IHC and Stratification'] = (
-			merged_df['PDL1 IHC'].astype(str) + "_" + merged_df['Stratification'].astype(str)
-		)
+		merged_df = pd.concat([surv_time, surv_status, treatment_response, diagnosis, age, gender, smoking, alcohol, hpv, race, ethnicity, relapse_time, relapse_status, pdl1_ihc, truth_response], axis=1)
+		merged_df.columns = ['Survival Months', 'E_Survival', 'Stratification', "Diagnosis", "Age", "Gender", "Smoking", "Alcohol", "HPV", "Race", "Ethnicity", 'Relapse Months', 'E_Relapse', 'PDL1 IHC', "Actual Treatment Response"]
+		merged_df['E_Survival'] = merged_df['E_Survival'].astype(bool)
+		merged_df['E_Relapse'] = merged_df['E_Relapse'].astype(bool)
+		merged_df['Predicted Treatment Response'] = merged_df.index.map(response_dictionary)
+		merged_df['Tumor Fraction'] = merged_df.index.map(tumor_dictionary)
 		merged_df.dropna(inplace=True)
 		
 		# Plotting: Create subplots in a 2x3 layout
-		fig, axes = plt.subplots(2, 2, figsize=(9, 9))
+		fig, axes = plt.subplots(2, 3, figsize=(12, 8))
 		
-		colors_strat = {"High": "tomato", "Intermediate": "seagreen"}
-		colors_pred_strat = {
-			"Responder_Intermediate": "palegreen",
-			"Responder_High": "darkgreen",
-			"Non-Responder_Intermediate": "salmon",
-			"Non-Responder_High": "firebrick"
+		#Set the colors for RISK STRATIFICATION.
+		colors_strat = {"High": "firebrick", "Intermediate": "palegreen"}
+		#Set the colors for TREATMENT RESPONSE.
+		palette = sns.color_palette('colorblind')
+		color0 = palette[0]
+		color5 = palette[5]
+		colors_resp = {"Responder": color0, "Non-Responder": color5}
+		# Set the colors for PDL1 IHC.
+		colors_pdl1 = {
+			"0": "firebrick",
+			"1-19": "gold",
+			">20": "darkgreen"
 		}
-		colors_pdl1_strat = {
-			"0_High": "firebrick",
-			"0_Intermediate": "salmon",
-			"1-19_High": "darkgoldenrod",
-			"1-19_Intermediate": "gold",
-			">20_High": "darkgreen",
-			">20_Intermediate": "palegreen"
+		# Set the colors for TUMOR FRACTION.
+		colors_tumor = {
+			"Low Tumor Fraction": "darkgreen",
+			"High Tumor Fraction": "firebrick"
 		}
 		
 		# Set up for two event types: Survival and Relapse
-		for row, event_type in enumerate([("E_Survival", "Survival Months"), ("E_Relapse", "Relapse Months")]):
+		for row, event_type in enumerate([("E_Relapse", "Relapse Months"), ("E_Survival", "Survival Months")]):
 			for col, (group_col, colors, label) in enumerate([
-				('Predicted Treatment Response and Stratification', colors_pred_strat, ''),
-				('IHC and Stratification', colors_pdl1_strat, '')
+				('Predicted Treatment Response', colors_resp, ''),
+				('PDL1 IHC', colors_pdl1, ''),
+				('Tumor Fraction', colors_tumor, ''),
 			]):
 				# Plot each group's curve
 				for group in merged_df[group_col].unique():
@@ -964,9 +980,9 @@ class HNSCCFeatureHandler:
 						conf_type="log-log",
 					)
 					axes[row, col].step(time, survival_prob, where="post", label=f"{label} = {group}",
-										color=colors.get(group, "gray"), linewidth=1)
-					axes[row, col].fill_between(time, conf_int[0], conf_int[1], alpha=0.1, step="post",
-												color=colors.get(group, "gray"), edgecolor="none")
+										color=colors.get(group, "gray"), linewidth=1.5)
+					# axes[row, col].fill_between(time, conf_int[0], conf_int[1], alpha=0.1, step="post",
+					# 							color=colors.get(group, "gray"), edgecolor="none")
 				
 				# Create a pairwise matrix table of log-rank test results
 				unique_groups = sorted(merged_df[group_col].unique())
@@ -1015,32 +1031,28 @@ class HNSCCFeatureHandler:
 					new_labels = ["0", "1-19", ">20"]
 					index_mapping = [labels_list.index(lab) if lab in labels_list else -1 for lab in new_labels]
 					handles = [handles[i] for i in index_mapping]
-				elif len(new_labels) == 4:
+				elif new_labels[0].startswith('N') or new_labels[0].startswith('R'):
 					labels_list = new_labels
-					new_labels = ["Responder_Intermediate", "Responder_High",
-								"Non-Responder_Intermediate", "Non-Responder_High"]
+					new_labels = ["Responder", "Non-Responder"]
 					index_mapping = [labels_list.index(lab) if lab in labels_list else -1 for lab in new_labels]
 					handles = [handles[i] for i in index_mapping]
-					new_labels = ["Responder (Intermediate)", "Responder (High)",
-								"Non-Responder (Intermediate)", "Non-Responder (High)"]
-				elif len(new_labels) == 6:
+				else:
 					labels_list = new_labels
-					new_labels = [">20_Intermediate", ">20_High", "1-19_Intermediate", "1-19_High", "0_Intermediate", "0_High"]
+					new_labels = ["Low Tumor Fraction", "High Tumor Fraction"]
 					index_mapping = [labels_list.index(lab) if lab in labels_list else -1 for lab in new_labels]
 					handles = [handles[i] for i in index_mapping]
-					new_labels = [">20 (Intermediate)", ">20 (High)", "1-19 (Intermediate)", "1-19 (High)", "0 (Intermediate)", "0 (High)"]
 				
 				axes[row, col].legend(handles, new_labels, loc="lower left", frameon=False, fontsize=8)
 		
 		# Titles for each subplot
-		#axes[0, 0].set_title("Survival by Stratification", fontsize=10)
-		axes[0, 0].set_title(f"Overall Survival\n({name} Response)", fontsize=10)
-		axes[0, 1].set_title("Overall Survival\n(PDL1 IHC)", fontsize=10)
-		#axes[1, 0].set_title("Disease-Free Survival\nby Stratification", fontsize=10)
-		axes[1, 0].set_title(f"Disease-Free Survival\n({name} Response)", fontsize=10)
-		axes[1, 1].set_title("Disease-Free Survival\n(PDL1 IHC)", fontsize=10)
+		axes[1, 0].set_title(f"Overall Survival (Predicted Response)", fontsize=10)
+		axes[1, 1].set_title("Overall Survival (PDL1 IHC)", fontsize=10)
+		axes[1, 2].set_title("Overall Survival (Tumor Fraction)", fontsize=10)
+		axes[0, 0].set_title(f"Disease-Free Survival (Predicted Response)", fontsize=10)
+		axes[0, 1].set_title("Disease-Free Survival (PDL1 IHC)", fontsize=10)
+		axes[0, 2].set_title(f"Disease-Free Survival (Tumor Fraction)", fontsize=10)
 		
 		plt.tight_layout()
 		plt.savefig(f"{name}.pdf", dpi=300)
 		plt.show()
-		return pairwise_results
+		return merged_df

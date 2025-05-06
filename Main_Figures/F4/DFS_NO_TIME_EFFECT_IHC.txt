@@ -1,0 +1,37 @@
+DFS_NO_TIME_EFFECT
+Call:
+coxph(formula = Surv(time_to_event, event) ~ age + gender + ethnicity + 
+    diagnosis + hpv + smoking + alcohol + stratification + tt(ihc), 
+    data = df_patient_DFS, tt = function(x, t, ...) x * log(t))
+
+  n= 68, number of events= 23 
+
+                   coef exp(coef) se(coef)      z Pr(>|z|)  
+age            -0.01321   0.98688  0.01923 -0.687   0.4923  
+gender         -0.13591   0.87292  0.49086 -0.277   0.7819  
+ethnicity       1.04420   2.84114  1.07009  0.976   0.3292  
+diagnosis       1.28606   3.61849  0.73787  1.743   0.0813 .
+hpv             0.21745   1.24291  0.45852  0.474   0.6353  
+smoking        -0.27255   0.76143  0.48753 -0.559   0.5761  
+alcohol        -0.67982   0.50671  0.63147 -1.077   0.2817  
+stratification  1.28607   3.61855  0.55359  2.323   0.0202 *
+tt(ihc)         0.03613   1.03679  0.05731  0.630   0.5284  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+               exp(coef) exp(-coef) lower .95 upper .95
+age               0.9869     1.0133    0.9504     1.025
+gender            0.8729     1.1456    0.3335     2.285
+ethnicity         2.8411     0.3520    0.3488    23.139
+diagnosis         3.6185     0.2764    0.8520    15.367
+hpv               1.2429     0.8046    0.5060     3.053
+smoking           0.7614     1.3133    0.2929     1.980
+alcohol           0.5067     1.9735    0.1470     1.747
+stratification    3.6186     0.2764    1.2227    10.709
+tt(ihc)           1.0368     0.9645    0.9266     1.160
+
+Concordance= 0.757  (se = 0.046 )
+Likelihood ratio test= 18.75  on 9 df,   p=0.03
+Wald test            = 16.31  on 9 df,   p=0.06
+Score (logrank) test = 18.69  on 9 df,   p=0.03
+
