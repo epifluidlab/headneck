@@ -1,5 +1,5 @@
 ,Responder (N=31),Non-Responder (N=37),Total (N=68),p value
-Diagnosis,,,,0.353
+Diagnosis Site,,,,0.353
 Hypopharynx Tumor,0 (0.0%),1 (2.7%),1 (1.5%),
 Larynx Tumor,3 (9.7%),4 (10.8%),7 (10.3%),
 Oral Cavity Tumor,26 (83.9%),32 (86.5%),58 (85.3%),
@@ -28,6 +28,6 @@ Unknown,0 (0.0%),1 (2.7%),1 (1.5%),
 HPV,,,,0.515
 No,11 (35.5%),16 (43.2%),27 (39.7%),
 Unknown,20 (64.5%),21 (56.8%),41 (60.3%),
-Stratification,,,,0.161
+Risk Stratification,,,,0.161
 Intermediate,17 (54.8%),14 (37.8%),31 (45.6%),
 High,14 (45.2%),23 (62.2%),37 (54.4%),

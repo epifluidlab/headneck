@@ -1,0 +1,3 @@
+The .pkl files were created in F4 TABPFN_ML.ipynb and get_tumor_fraction_dict.ipynb
+
+Then run survival_curve.ipynb and then surv.R

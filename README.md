@@ -2,20 +2,19 @@
 
 ### Contents
 
-|       Main Figures       |   Supplementary Figures   |   Supplementary Tables   |
-|:------------------------:|:-------------------------:|:------------------------:|
-|       [T1](./Main_Tables/T1)         |       [SF1](./Supplementary_Figures/SF1)        |       [ST1](./Supplementary_Tables/ST1)       |
-|       [F1](./Main_Figures/F1)         |       [SF2](./Supplementary_Figures/SF2)        |       [ST2](./Supplementary_Tables/ST2)       |
-|       [F2](./Main_Figures/F2)         |       [SF3](./Supplementary_Figures/SF3)        |       [ST3](./Supplementary_Tables/ST3)       |
-|       [F3](./Main_Figures/F3)         |       [SF4](./Supplementary_Figures/SF4)        |       [ST4](./Supplementary_Tables/ST4)       |
-|       [F4](./Main_Figures/F4)         |       [SF5](./Supplementary_Figures/SF5)        |       [ST5](./Supplementary_Tables/ST5)       |
-|                          |       [SF6](./Supplementary_Figures/SF6)        |       [ST6](./Supplementary_Tables/ST6)       |
-|                          |       [SF7](./Supplementary_Figures/SF7)        |       [ST7](./Supplementary_Tables/ST7)       |
-|                          |       [SF8](./Supplementary_Figures/SF8)        |                          |
-|                          |               |                          |
-|                          |             |                          |
-|                          |             |                          |
-|                          |            |                          |
+|     Main Figures     |     Supplementary Figures     |   Supplementary Tables   |
+|:--------------------:|:-----------------------------:|:------------------------:|
+| [F1](./Main_Figures/F1) | [SF1](./Supplementary_Figures/SF1)   | [ST1](./Supplementary_Tables/ST1) |
+| [F2](./Main_Figures/F2) | [SF2](./Supplementary_Figures/SF2)   | [ST2](./Supplementary_Tables/ST2) |
+| [F3](./Main_Figures/F3) | [SF3](./Supplementary_Figures/SF3)   | [ST3](./Supplementary_Tables/ST3) |
+| [F4](./Main_Figures/F4) | [SF4](./Supplementary_Figures/SF4)   | [ST4](./Supplementary_Tables/ST4) |
+| [F5](./Main_Figures/F5) | [SF5](./Supplementary_Figures/SF5)   | [ST5](./Supplementary_Tables/ST5) |
+| [T1](./Main_Tables/T1)  | [SF6](./Supplementary_Figures/SF6)   | [ST6](./Supplementary_Tables/ST6) |
+|                        | [SF7](./Main_Figures/F4)   | [ST7](./Supplementary_Tables/ST7) |
+|                        | [SF8-11](./Main_Figures/F4) |                            |
+|                        | [SF12](./Supplementary_Figures/SF12) |                                |
+|                        | [SF13](./Supplementary_Figures/SF13) |                                |
+
 
 ### Citation
 Bandaru R, Fu H, Zheng H, Li W, Gulati S, Hildeman D, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2025). *Genome-Wide Variations of End Motif in Cell-Free DNA Fragments Distinguish Immunotherapy Responders from Non-Responders in Head and Neck Cancer: A Multi-Institute Prospective Study*. **[Journal]**. ![DOI](https://img.shields.io/badge/DOI-TBD-pink?style=flat-square)
