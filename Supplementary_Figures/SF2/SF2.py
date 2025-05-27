@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from upsetplot import UpSet, from_memberships
 import matplotlib.patches as mpatches
+import seaborn as sns
 
 
 def load_metadata(csv_file_path, valid_ids_path):
@@ -50,11 +51,25 @@ def create_institute_barplot(metadata_df, out_path, title, cohort=None, y_ticks=
     pivot_df = visit_counts.pivot(index="Institute", columns="Type of Visit", values="Count").fillna(0)
     pivot_df = pivot_df.reindex(universities)
 
+    colorblind_palette = sns.color_palette("colorblind")
+    is_response_stratified = set(pivot_df.columns) == {"Responder", "Non-Responder"}
+    if is_response_stratified:
+        colors = {
+            "Responder": colorblind_palette[0],
+            "Non-Responder": colorblind_palette[5],
+        }
+        pivot_df = pivot_df[["Responder", "Non-Responder"]]
+    else:
+        colors = ["lightblue", "lightgreen", "lightcoral"]
+
     fig, ax = plt.subplots(figsize=(4, 4))
     if cohort:
         for idx in [universities.index(inst) for inst in cohort]:
             ax.axvspan(idx - 0.5, idx + 0.5, facecolor='lightgray', alpha=0.5)
-    pivot_df.plot(kind='bar', stacked=False, color=["lightblue", "lightgreen", "lightcoral"], ax=ax)
+
+    pivot_df.plot(kind='bar', stacked=False,
+                  color=colors if isinstance(colors, list) else [colors[col] for col in pivot_df.columns], ax=ax)
+
     plt.ylabel('Number of Samples')
     ax.set_xticklabels([institute_label_map.get(label.get_text(), label.get_text()) for label in ax.get_xticklabels()],
                        rotation=30, ha='right')
@@ -67,7 +82,7 @@ def create_institute_barplot(metadata_df, out_path, title, cohort=None, y_ticks=
         labels.append('Institute Hold-Out')
         ax.legend(handles=handles, labels=labels, title=None, loc='upper right')
     else:
-        plt.legend(title="Visit Type")
+        plt.legend(loc='upper right')
     plt.title(title)
     plt.tight_layout()
     plt.savefig(out_path, dpi=1000, bbox_inches='tight')
@@ -80,11 +95,25 @@ def create_date_barplot(metadata_df, date_column, out_path, title, custom_order,
     pivot_df = pivot_df.reindex(custom_order, fill_value=0)
     pivot_df.index = pd.Categorical(pivot_df.index, categories=custom_order, ordered=True)
     pivot_df.sort_index(inplace=True)
+
+    colorblind_palette = sns.color_palette("colorblind")
+    is_response_stratified = set(pivot_df.columns) == {"Responder", "Non-Responder"}
+    if is_response_stratified:
+        colors = {
+            "Responder": colorblind_palette[0],
+            "Non-Responder": colorblind_palette[5],
+        }
+        pivot_df = pivot_df[["Responder", "Non-Responder"]]
+    else:
+        colors = ["lightblue", "lightgreen", "lightcoral"]
+
     fig, ax = plt.subplots(figsize=(4, 4))
-    pivot_df.plot(kind='bar', stacked=False, color=["lightblue", "lightgreen", "lightcoral"], ax=ax)
+    pivot_df.plot(kind='bar', stacked=False,
+                  color=colors if isinstance(colors, list) else [colors[col] for col in pivot_df.columns], ax=ax)
+
     plt.ylabel('Number of Samples')
     plt.xlabel(date_column)
-    plt.legend(title="Visit Type", loc='upper left')
+    plt.legend(loc='upper right')
     plt.xticks(rotation=45)
     plt.grid(axis='y', linestyle='--', linewidth=0.7, alpha=0.5)
     ax.set_yticks(y_ticks)
@@ -121,60 +150,122 @@ create_upset_plot(
     sort_categories_by='input'
 )
 
-# SF2.P3.v1.pdf
+# SF2.P3a.v1.pdf — stratified by Type of Visit (default)
 create_institute_barplot(
     metadata_cv,
-    out_path='SF2.P3.v1.pdf',
-    title='Analysis Set',
+    out_path='SF2.P3a.v1.pdf',
+    title='Analysis Set (by Visit Type)',
     cohort={"MD Anderson", "University of Louisville"},
     y_ticks=range(0, 31, 5)
 )
 
-# SF2.P4.v1.pdf
+# SF2.P3b.v1.pdf — stratified by Treatment Response
+create_institute_barplot(
+    metadata_cv.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    out_path='SF2.P3b.v1.pdf',
+    title='Analysis Set (by Treatment Response)',
+    cohort={"MD Anderson", "University of Louisville"},
+    y_ticks=range(0, 51, 5)
+)
+
+# SF2.P4a.v1.pdf - Pre-Holdout by Visit
 create_institute_barplot(
     metadata_holdout,
-    out_path='SF2.P4.v1.pdf',
-    title='Pre-Holdout Set',
-    cohort=None,
-    y_ticks=range(0, 6, 1)
+    'SF2.P4a.v1.pdf',
+    'Pre-Holdout Set (by Visit Type)',
+    None,
+    range(0, 6, 1)
 )
 
-# SF2.P5.v1.pdf
+# SF2.P4b.v1.pdf - Pre-Holdout by Treatment Response
+create_institute_barplot(
+    metadata_holdout.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    'SF2.P4b.v1.pdf',
+    'Pre-Holdout Set (by Treatment Response)',
+    None,
+    range(0, 11, 1)
+)
+
+
+# SF2.P5a.v1.pdf - Analysis Set cfDNA Isolation Date by Visit
 create_date_barplot(
     metadata_cv,
-    date_column="cfDNA Isolation Date",
-    out_path='SF2.P5.v1.pdf',
-    title='Analysis Set',
+    "cfDNA Isolation Date",
+    "SF2.P5a.v1.pdf",
+    "Analysis Set (by Visit Type)",
     custom_order=["12/26/19", "12/30/19", "12/31/19", "1/2/20", "1/3/20", "1/15/20", "9/16/20", "9/17/20", "9/18/20"],
-    y_ticks=range(0, 15, 5)
+    y_ticks=range(0, 15, 1)
 )
 
-# SF2.P6.v1.pdf
+# SF2.P5b.v1.pdf - by Treatment Response
+create_date_barplot(
+    metadata_cv.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    "cfDNA Isolation Date",
+    "SF2.P5b.v1.pdf",
+    "Analysis Set (by Treatment Response)",
+    custom_order=["12/26/19", "12/30/19", "12/31/19", "1/2/20", "1/3/20", "1/15/20", "9/16/20", "9/17/20", "9/18/20"],
+    y_ticks=range(0, 25, 5)
+)
+
+
+# SF2.P6a.v1.pdf - Pre-Holdout cfDNA Date by Visit
 create_date_barplot(
     metadata_holdout,
-    date_column="cfDNA Isolation Date",
-    out_path='SF2.P6.v1.pdf',
-    title='Pre-Holdout Set',
+    "cfDNA Isolation Date",
+    "SF2.P6a.v1.pdf",
+    "Pre-Holdout Set (by Visit Type)",
     custom_order=["12/26/19", "12/30/19", "12/31/19", "1/2/20", "1/3/20", "1/15/20", "9/16/20", "9/17/20", "9/18/20"],
     y_ticks=range(0, 5, 1)
 )
 
-# SF2.P7.v1.pdf
+# SF2.P6b.v1.pdf - Pre-Holdout cfDNA Date by Response
+create_date_barplot(
+    metadata_holdout.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    "cfDNA Isolation Date",
+    "SF2.P6b.v1.pdf",
+    "Pre-Holdout Set (by Treatment Response)",
+    custom_order=["12/26/19", "12/30/19", "12/31/19", "1/2/20", "1/3/20", "1/15/20", "9/16/20", "9/17/20", "9/18/20"],
+    y_ticks=range(0, 10, 1)
+)
+
+
+# SF2.P7a.v1.pdf - WGS Prep by Visit
 create_date_barplot(
     metadata_cv,
-    date_column="WGS Library Prep Date",
-    out_path='SF2.P7.v1.pdf',
-    title='Analysis Set',
+    "WGS Library Prep Date",
+    "SF2.P7a.v1.pdf",
+    "Analysis Set (by Visit Type)",
     custom_order=["12/14/20", "12/15/20", "2/26/20", "2/27/20", "2/28/20", "3/1/20", "3/8/20", "3/11/20"],
     y_ticks=range(0, 15, 5)
 )
 
-# SF2.P8.v1.pdf
+# SF2.P7b.v1.pdf - WGS Prep by Response
+create_date_barplot(
+    metadata_cv.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    "WGS Library Prep Date",
+    "SF2.P7b.v1.pdf",
+    "Analysis Set (by Treatment Response)",
+    custom_order=["12/14/20", "12/15/20", "2/26/20", "2/27/20", "2/28/20", "3/1/20", "3/8/20", "3/11/20"],
+    y_ticks=range(0, 26, 5)
+)
+
+
+# SF2.P8a.v1.pdf - Holdout WGS Prep by Visit
 create_date_barplot(
     metadata_holdout,
-    date_column="WGS Library Prep Date",
-    out_path='SF2.P8.v1.pdf',
-    title='Pre-Holdout Set',
+    "WGS Library Prep Date",
+    "SF2.P8a.v1.pdf",
+    "Pre-Holdout Set (by Visit Type)",
     custom_order=["12/14/20", "12/15/20", "2/26/20", "2/27/20", "2/28/20", "3/1/20", "3/8/20", "3/11/20"],
     y_ticks=range(0, 5, 1)
+)
+
+# SF2.P8b.v1.pdf - Holdout WGS Prep by Response
+create_date_barplot(
+    metadata_holdout.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
+    "WGS Library Prep Date",
+    "SF2.P8b.v1.pdf",
+    "Pre-Holdout Set (by Treatment Response)",
+    custom_order=["12/14/20", "12/15/20", "2/26/20", "2/27/20", "2/28/20", "3/1/20", "3/8/20", "3/11/20"],
+    y_ticks=range(0, 8, 1)
 )
