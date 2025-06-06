@@ -5,7 +5,7 @@ library(ggplot2)
 library(gridExtra)
 
 setwd('/Users/ravibandaru/Downloads')
-d <- read.csv("./survival_data_imputed.csv")
+d <- read.csv("./survival_data.csv")
 
 df_patient <- data.frame(
   id            = d[,1],
