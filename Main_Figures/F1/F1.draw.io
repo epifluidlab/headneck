@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Safari/605.1.15" version="26.2.14">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15" version="27.1.3">
   <diagram name="Page-1" id="RnLOujTq4UQYLH6lgoQO">
-    <mxGraphModel dx="2058" dy="1082" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" adaptiveColors="none">
+    <mxGraphModel dx="984" dy="568" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" adaptiveColors="none">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -165,9 +165,6 @@
         </mxCell>
         <mxCell id="-CjRuXy85uaz6GuDeEmA-172" value="1&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;fontFamily=Helvetica;" parent="-CjRuXy85uaz6GuDeEmA-189" vertex="1">
           <mxGeometry x="93.5" y="118.5" width="18.5" height="21" as="geometry" />
-        </mxCell>
-        <mxCell id="-CjRuXy85uaz6GuDeEmA-173" value="(adjusted)" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;fontSize=4;fontFamily=Helvetica;" parent="-CjRuXy85uaz6GuDeEmA-189" vertex="1">
-          <mxGeometry x="99.5" y="122.5" width="18.5" height="21" as="geometry" />
         </mxCell>
         <mxCell id="-CjRuXy85uaz6GuDeEmA-182" value="" style="endArrow=none;html=1;rounded=0;fontSize=8;strokeWidth=0.5;fontFamily=Helvetica;" parent="-CjRuXy85uaz6GuDeEmA-189" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -566,7 +563,7 @@
         <mxCell id="4-4I5rKA6KfIaQXoA2Et-5" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;Day 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
           <mxGeometry x="245" y="38" width="21" height="4" as="geometry" />
         </mxCell>
-        <mxCell id="4-4I5rKA6KfIaQXoA2Et-6" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;Adjusted Week 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
+        <mxCell id="4-4I5rKA6KfIaQXoA2Et-6" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;Adjuvant Week 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
           <mxGeometry x="261" y="38" width="79" height="4" as="geometry" />
         </mxCell>
         <mxCell id="ZBGCLJP5AHXo37WjZI82-1" value="" style="endArrow=blockThin;html=1;rounded=0;endFill=0;fontFamily=Helvetica;" parent="1" edge="1">
