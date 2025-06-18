@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg38" locus="chr21:30249999-30500000" nextAutoscaleGroup="2" version="8">
+    <Resources>
+        <Resource path="/Users/ravibandaru/Downloads/F3/rMDS_cluster2.bed" type="bed"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/responder_day0.bw" type="bw"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/non_responder_day0.bw" type="bw"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/responder_adj_wk1.bw" type="bw"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/non_responder_adj_wk1.bw" type="bw"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/rMDS_cluster1.bed" type="bed"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/rMDS_cluster3.bed" type="bed"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/responder_screen.bw" type="bw"/>
+        <Resource path="/Users/ravibandaru/Downloads/F3/non_responder_screen.bw" type="bw"/>
+    </Resources>
+    <Panel height="611" name="DataPanel" width="564">
+        <Track altColor="255,102,102" attributeKey="responder_screen.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/responder_screen.bw" name="Responder (Screen)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+        <Track altColor="255,102,102" attributeKey="non_responder_screen.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/non_responder_screen.bw" name="Non-Responder (Screen)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+        <Track altColor="255,102,102" attributeKey="responder_day0.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/responder_day0.bw" name="Responder (Day 0)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+        <Track altColor="255,102,102" attributeKey="non_responder_day0.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/non_responder_day0.bw" name="Non-Responder (Day 0)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+        <Track altColor="255,102,102" attributeKey="responder_adj_wk1.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/responder_adj_wk1.bw" name="Responder (Adj Wk 1)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+        <Track altColor="255,102,102" attributeKey="non_responder_adj_wk1.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,212,158" fontSize="10" height="100" id="/Users/ravibandaru/Downloads/F3/non_responder_adj_wk1.bw" name="Non-Responder (Adj Wk 1)" renderer="BAR_CHART" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="0.1" minimum="-0.1" type="LINEAR"/>
+        </Track>
+    </Panel>
+    <Panel height="323" name="FeaturePanel" width="564">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="+" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="Refseq Select" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;127.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" id="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeqSelect.txt.gz" name="Refseq Select" visible="true"/>
+        <Track attributeKey="rMDS_cluster1.bed" clazz="org.broad.igv.track.FeatureTrack" color="57,59,121" fontSize="10" groupByStrand="false" id="/Users/ravibandaru/Downloads/F3/rMDS_cluster1.bed" name="Cluster 1" visible="true"/>
+        <Track attributeKey="rMDS_cluster2.bed" clazz="org.broad.igv.track.FeatureTrack" color="231,186,82" fontSize="10" groupByStrand="false" id="/Users/ravibandaru/Downloads/F3/rMDS_cluster2.bed" name="Cluster 2" visible="true"/>
+        <Track attributeKey="rMDS_cluster3.bed" clazz="org.broad.igv.track.FeatureTrack" color="222,158,214" fontSize="10" groupByStrand="false" id="/Users/ravibandaru/Downloads/F3/rMDS_cluster3.bed" name="Cluster 3" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.6514346439957492"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>

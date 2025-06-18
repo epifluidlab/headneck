@@ -1,0 +1,57 @@
+// Sample Processing Diagram
+digraph {
+	nodesep=0.1 rankdir=TB ranksep=0.6
+	ALL [label="All Data" fillcolor=khaki fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UC [label=UC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UM [label="U-M" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	OSU [label=OSU fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	MUSC [label=MUSC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	MD [label="MD Anderson" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UL [label=UofL fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	{
+		rank=same
+		ALL
+	}
+	{
+		rank=same
+		UC
+		UM
+		OSU
+		MUSC
+		MD
+		UL
+	}
+	ALL -> UC [color=khaki fontname=Helvetica fontsize=9]
+	ALL -> UM [color=khaki fontname=Helvetica fontsize=9]
+	ALL -> OSU [color=khaki fontname=Helvetica fontsize=9]
+	ALL -> MUSC [color=khaki fontname=Helvetica fontsize=9]
+	ALL -> MD [color=khaki fontname=Helvetica fontsize=9]
+	ALL -> UL [color=khaki fontname=Helvetica fontsize=9]
+	CV [label="Training Set
+(Batch Factors Learned)" fillcolor=darkseagreen fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	Spacer [label="" height=0 shape=point style=invis width=2]
+	Pre [label="Pre-Holdout Set
+(Batch Factors Applied,
+Label Blind,
+Randomly Selected)" fillcolor=lightsalmon fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	{
+		rank=same
+		CV
+		Spacer
+		Pre
+	}
+	CV -> Spacer [style=invis]
+	Spacer -> Pre [style=invis]
+	UC -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	UC -> Pre [color=salmon fontname=Helvetica fontsize=9]
+	UM -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	UM -> Pre [color=salmon fontname=Helvetica fontsize=9]
+	OSU -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	OSU -> Pre [color=salmon fontname=Helvetica fontsize=9]
+	MUSC -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	MUSC -> Pre [color=salmon fontname=Helvetica fontsize=9]
+	MD -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	MD -> Pre [color=salmon fontname=Helvetica fontsize=9]
+	UL -> CV [color=darkseagreen fontname=Helvetica fontsize=9]
+	UL -> Pre [color=salmon fontname=Helvetica fontsize=9]
+}

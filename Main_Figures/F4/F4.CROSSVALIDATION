@@ -1,0 +1,33 @@
+// Cross-Validation Diagram
+digraph {
+	nodesep=0.1 rankdir=TB ranksep=0.6
+	ALL [label="Analysis Set" fillcolor=khaki fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UC [label=UC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UC [color=khaki fontname=Helvetica fontsize=9]
+	UM [label="U-M" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UM [color=khaki fontname=Helvetica fontsize=9]
+	OSU [label=OSU fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> OSU [color=khaki fontname=Helvetica fontsize=9]
+	MUSC [label=MUSC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> MUSC [color=khaki fontname=Helvetica fontsize=9]
+	MD [label="MD Anderson" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> MD [color=khaki fontname=Helvetica fontsize=9]
+	UL [label=UofL fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UL [color=khaki fontname=Helvetica fontsize=9]
+	CV10 [label="10-Fold Cross Validation" fillcolor=darkseagreen fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UC -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	UM -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	OSU -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	MUSC -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	MD -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	UL -> CV10 [color=darkseagreen fontname=Helvetica fontsize=9]
+	{
+		rank=same
+		UC
+		UM
+		OSU
+		MUSC
+		MD
+		UL
+	}
+}

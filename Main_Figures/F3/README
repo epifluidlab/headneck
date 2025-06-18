@@ -1,12 +1,1 @@
-
-F2F:
-1. Generated 500kb windows sliding every 10kb.
-2. Ran the end motifs interval calculation using FinaleToolkit.
-3. Ran the MDS calculation using FinaleToolkit.
-4. Replaced the intervals with the midpoint of the 500kb interval, +/- 5kb.
-5. Normalized and performed batch correction, obtained .bw files for {treatment_response}_{visit} by averaging signals in bins.
-6. Obtained the merged F2F.merged.rMDS.cluster3.bed by merging adjacent intervals of ST3's rMDS_cluster3.tsv
-7. Chose the interval chr9:133000000-137500000 for the longest contiguous region.
-8. Used Ensembl BioMart to identify locations of genes associated with keratinization from ST4's rMDS_cluster3_GO.csv
-9. Chose the interval chr12:52,500,000-53,000,000 for a region of high keratinization gene density.
-10. Plotted using IGV.
+Run the relevant notebooks.

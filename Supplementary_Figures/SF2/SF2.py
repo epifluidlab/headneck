@@ -35,7 +35,7 @@ def create_upset_plot(metadata_df, out_path, title, sort_by='input', sort_catego
 
 def create_institute_barplot(metadata_df, out_path, title, cohort=None, y_ticks=range(0, 31, 5)):
     universities = [
-        "University of Cincinnati", "University of Michigan", "Ohio State University",
+        "University of Cincinnati", "University of Michigan", "Ohio State University", 
         "Medical University of South Carolina", "MD Anderson", "University of Louisville"
     ]
     institute_label_map = {
@@ -124,7 +124,7 @@ def create_date_barplot(metadata_df, date_column, out_path, title, custom_order,
 
 
 # Paths
-csv_file = "../../Supplementary_Tables/ST1/RAW_HNSCC_METADATA_NEW.csv"
+csv_file = "../../Supplementary_Tables/ST1/RAW_HNSCC_METADATA_NEW_v10.csv"
 cv_ids = "../../Utils/Lists/cv_ids.txt"
 holdout_ids = "../../Utils/Lists/holdout_ids.txt"
 
@@ -155,7 +155,7 @@ create_institute_barplot(
     metadata_cv,
     out_path='SF2.P3a.v1.pdf',
     title='Analysis Set (by Visit Type)',
-    cohort={"MD Anderson", "University of Louisville"},
+    #cohort={"Ohio State University", "University of Louisville"},
     y_ticks=range(0, 31, 5)
 )
 
@@ -164,7 +164,7 @@ create_institute_barplot(
     metadata_cv.drop(columns=["Type of Visit"]).rename(columns={"Treatment Response": "Type of Visit"}),
     out_path='SF2.P3b.v1.pdf',
     title='Analysis Set (by Treatment Response)',
-    cohort={"MD Anderson", "University of Louisville"},
+    #cohort={"Ohio State University", "University of Louisville"},
     y_ticks=range(0, 51, 5)
 )
 

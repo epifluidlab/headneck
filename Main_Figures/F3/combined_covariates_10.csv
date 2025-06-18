@@ -1,0 +1,152 @@
+sample,OGID,Age,Gender,Smoking,Alcohol,Diagnosis,Ethnicity,Race,HPV,Stratification,Type of Visit,Treatment Response
+Pilot2_10,HN01-50,71,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_11,HN01-50,71,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_12,HN01-51,75,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_13,HN01-51,75,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot2_14,HN02-01,70,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot2_15,HN02-01,70,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot2_16,HN02-06,55,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Non-Responder
+Pilot2_17,HN02-06,55,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Non-Responder
+Pilot2_18,HN02-06,55,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Non-Responder
+Pilot2_19,HN02-07,49,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot2_20,HN02-07,49,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_21,HN02-07,49,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_22,HN03-01,38,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot2_23,HN03-01,38,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot2_24,HN03-01,38,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot2_25,HN03-03,63,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot2_26,HN03-03,63,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_27,HN03-03,63,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_28,HN03-04,49,Male,Yes,Yes,Hypopharynx Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot2_29,HN03-04,49,Male,Yes,Yes,Hypopharynx Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot2_3,HN01-37,44,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot2_30,HN04-01,45,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Non-Responder
+Pilot2_31,HN04-01,45,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Non-Responder
+Pilot2_36,HN04-09,60,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot2_37,HN04-09,60,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot2_38,HN04-09,60,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Responder
+Pilot2_39,HN04-10,62,Male,No,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot2_4,HN01-37,44,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot2_40,HN04-10,62,Male,No,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot2_41,HN04-10,62,Male,No,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Responder
+Pilot2_48,HN04-16,50,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot2_49,HN05-03,35,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_5,HN01-37,44,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot2_50,HN05-03,35,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot2_54,HN05-06,55,Male,Yes,No,Oral Cavity Tumor,Unknown,White,Unknown,High,Screen,Non-Responder
+Pilot2_55,HN05-06,55,Male,Yes,No,Oral Cavity Tumor,Unknown,White,Unknown,High,Day 0,Non-Responder
+Pilot2_56,HN05-06,55,Male,Yes,No,Oral Cavity Tumor,Unknown,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot2_57,HN05-09,59,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_58,HN05-09,59,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot2_59,HN05-09,59,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Responder
+Pilot2_6,HN01-49,51,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot2_60,HN05-11,52,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot2_61,HN05-11,52,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_62,HN05-11,52,Male,Yes,Yes,Larynx Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_63,HN06-01,73,Female,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_64,HN06-01,73,Female,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Responder
+Pilot2_65,HN06-02,56,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot2_66,HN06-02,56,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Responder
+Pilot2_67,HN06-02,56,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Responder
+Pilot2_69,HN06-04,60,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_7,HN01-49,51,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot2_70,HN06-04,60,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_71,HN06-05,65,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_72,HN06-05,65,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot2_75,HN06-08,57,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot2_76,HN06-08,57,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Responder
+Pilot2_78,HN06-09,74,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot2_79,HN06-09,74,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot2_8,HN01-49,51,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot2_80,HN06-13,49,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot2_81,HN06-13,49,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot2_82,HN06-14,45,Male,No,No,Oral Cavity Tumor,Non-Hispanic,Native Hawaiian or Other Pacific Islander,Unknown,Intermediate,Screen,Responder
+Pilot2_83,HN06-14,45,Male,No,No,Oral Cavity Tumor,Non-Hispanic,Native Hawaiian or Other Pacific Islander,Unknown,Intermediate,Day 0,Responder
+Pilot2_86,HN06-18,66,Male,No,No,Oropharynx Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot2_87,HN06-18,66,Male,No,No,Oropharynx Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot2_88,HN06-18,66,Male,No,No,Oropharynx Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot2_89,HN06-19,72,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot2_9,HN01-50,71,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot2_90,HN06-19,72,Female,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot_196,HN01-02,55,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot_198,HN01-02,55,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Responder
+Pilot_199,HN01-04,58,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot_200,HN01-04,58,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Responder
+Pilot_201,HN01-04,58,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Responder
+Pilot_202,HN01-06,65,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot_203,HN01-06,65,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot_204,HN01-06,65,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Responder
+Pilot_205,HN01-10,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot_206,HN01-10,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot_207,HN01-10,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Responder
+Pilot_211,HN01-12,60,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot_212,HN01-12,60,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Responder
+Pilot_213,HN01-12,60,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Responder
+Pilot_217,HN01-15,68,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot_218,HN01-15,68,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot_219,HN01-17,55,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Responder
+Pilot_220,HN01-17,55,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Responder
+Pilot_221,HN01-17,55,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Responder
+Pilot_222,HN01-19,45,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot_223,HN01-19,45,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot_224,HN01-19,45,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot_228,HN01-29,59,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot_230,HN01-29,59,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Responder
+Pilot_234,HN01-01,47,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Non-Responder
+Pilot_235,HN01-01,47,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Non-Responder
+Pilot_236,HN01-01,47,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Non-Responder
+Pilot_237,HN01-07,54,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot_238,HN01-07,54,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot_239,HN01-07,54,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot_240,HN01-13,47,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot_241,HN01-13,47,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot_242,HN01-13,47,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot_243,HN01-16,27,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot_244,HN01-16,27,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot_245,HN01-16,27,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot_246,HN01-18,48,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot_247,HN01-18,48,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot_248,HN01-18,48,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot_249,HN01-21,64,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Non-Responder
+Pilot_250,HN01-21,64,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Non-Responder
+Pilot_251,HN01-21,64,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Non-Responder
+Pilot_255,HN01-23,70,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot_256,HN01-23,70,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot_257,HN01-23,70,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot_258,HN01-26,69,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Non-Responder
+Pilot_259,HN01-26,69,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Non-Responder
+Pilot_260,HN01-28,54,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot_261,HN01-28,54,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot_262,HN01-28,54,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot_263,HN01-41,58,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,Black or African American,No,High,Screen,Non-Responder
+Pilot_264,HN01-41,58,Female,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,Black or African American,No,High,Day 0,Non-Responder
+Pilot_266,HN01-42,60,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Non-Responder
+Pilot_267,HN01-42,60,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Non-Responder
+Pilot_268,HN01-42,60,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Non-Responder
+Pilot_269,HN02-02,46,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Non-Responder
+Pilot_270,HN02-02,46,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Non-Responder
+Pilot_271,HN02-02,46,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Non-Responder
+Pilot_272,HN02-05,37,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot_273,HN02-05,37,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot_274,HN02-05,37,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot_275,HN04-02,42,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Screen,Non-Responder
+Pilot_276,HN04-02,42,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Non-Responder
+Pilot_277,HN04-02,42,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Non-Responder
+Pilot_278,HN04-04,76,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot_279,HN04-04,76,Male,Yes,No,Larynx Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot_280,HN04-05,68,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Screen,Non-Responder
+Pilot_281,HN04-05,68,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Day 0,Non-Responder
+Pilot_282,HN04-05,68,Male,Yes,Yes,Oral Cavity Tumor,Non-Hispanic,White,No,High,Adj Wk 1,Non-Responder
+Pilot_283,HN04-07,39,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Screen,Responder
+Pilot_284,HN04-07,39,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Day 0,Responder
+Pilot_285,HN04-07,39,Male,No,No,Oral Cavity Tumor,Non-Hispanic,White,No,Intermediate,Adj Wk 1,Responder
+Pilot_286,HN05-01,71,Female,Yes,No,Oropharynx Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot_287,HN05-01,71,Female,Yes,No,Oropharynx Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder
+Pilot_288,HN05-01,71,Female,Yes,No,Oropharynx Tumor,Non-Hispanic,White,Unknown,High,Adj Wk 1,Responder
+Pilot_289,HN05-02,62,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot_291,HN05-02,62,Male,No,Yes,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Responder
+Pilot_294,HN01-36,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Screen,Responder
+Pilot_295,HN01-36,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Day 0,Responder
+Pilot_296,HN01-36,68,Female,No,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,Intermediate,Adj Wk 1,Responder
+Pilot_297,HN01-39,73,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Screen,Responder
+Pilot_298,HN01-39,73,Male,Yes,No,Oral Cavity Tumor,Non-Hispanic,White,Unknown,High,Day 0,Responder

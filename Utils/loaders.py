@@ -33,6 +33,13 @@ class HNSCCFeatureHandler:
 		with open(hold_out_indices_file, "r") as f:
 			self.hold_ids = {line.strip() for line in f}
 		self.metadata = pd.read_csv(metadata_file)
+		self.institute1a = self.metadata[self.metadata["Institute"]=="University of Cincinnati"]
+		self.institute2a = self.metadata[self.metadata["Institute"]=="Ohio State University"]
+		self.institute3a = self.metadata[self.metadata["Institute"]=="Medical University of South Carolina"]
+		self.institute4a = self.metadata[self.metadata["Institute"]=="University of Michigan"]
+		self.institute5a = self.metadata[self.metadata["Institute"]=="University of Louisville"]
+		self.institute6a = self.metadata[self.metadata["Institute"]=="MD Anderson"]
+		self.institute1_idsa, self.institute2_idsa, self.institute3_idsa, self.institute4_idsa, self.institute5_idsa, self.institute6_idsa = set(self.institute1a["ID"]), set(self.institute2a["ID"]), set(self.institute3a["ID"]), set(self.institute4a["ID"]), set(self.institute5a["ID"]), set(self.institute6a["ID"])
 		self.hold_metadata = self.metadata[self.metadata["ID"].isin(self.hold_ids)]
 		self.metadata = self.metadata[self.metadata["ID"].isin(self.valid_ids)]
 		self.screen = self.metadata[self.metadata["Type of Visit"]=="Screen"]

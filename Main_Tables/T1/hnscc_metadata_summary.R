@@ -3,7 +3,7 @@ library(readr)
 library(dplyr)
 
 setwd("/projects/b1198/epifluidlab/ravi/0425/headneck/Main_Tables/T1")
-file_path <- '../../Supplementary_Tables/ST1/RAW_HNSCC_METADATA_NEW.csv'
+file_path <- '../../Supplementary_Tables/ST1/RAW_HNSCC_METADATA_NEW_v9.csv'
 df <- read_csv(file_path)
 
 selected_columns <- c("Patient Number", "Diagnosis", "Age", "Gender", "Race", "Ethnicity", "HPV", "Smoking", "Alcohol", "Stratification", "Treatment Response")
@@ -16,6 +16,6 @@ df_selected$`Treatment Response` <- factor(df_selected$`Treatment Response`, lev
 
 summary_table <- tableby(`Treatment Response` ~ ., data = df_selected)
 
-sink("./hnscc_metadata_summary.md")
+sink("./hnscc_metadata_summary_10.md")
 print(summary(summary_table))
 sink()

@@ -1,0 +1,45 @@
+// Institute Holdout Diagram
+digraph {
+	nodesep=0.1 rankdir=TB ranksep=0.6
+	ALL [label="Analysis Set" fillcolor=khaki fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UC [label=UC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UC [color=khaki fontname=Helvetica fontsize=9]
+	UM [label="U-M" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UM [color=khaki fontname=Helvetica fontsize=9]
+	OSU [label=OSU fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> OSU [color=khaki fontname=Helvetica fontsize=9]
+	MUSC [label=MUSC fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> MUSC [color=khaki fontname=Helvetica fontsize=9]
+	MD [label="MD Anderson" fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> MD [color=khaki fontname=Helvetica fontsize=9]
+	UL [label=UofL fillcolor="#AED6F1" fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	ALL -> UL [color=khaki fontname=Helvetica fontsize=9]
+	CV [label="Training Set" fillcolor=darkseagreen fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	Combo [label="Single Institute Hold-Out" fillcolor=thistle fontname=Helvetica fontsize=10 shape=rect style="filled,rounded"]
+	UC -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	UC -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	UM -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	UM -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	OSU -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	OSU -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	MUSC -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	MUSC -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	MD -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	MD -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	UL -> CV [color=mediumseagreen fontname=Helvetica fontsize=9]
+	UL -> Combo [color=thistle fontname=Helvetica fontsize=9 style=dashed]
+	{
+		rank=same
+		UC
+		UM
+		OSU
+		MUSC
+		MD
+		UL
+	}
+	{
+		rank=same
+		CV
+		Combo
+	}
+}

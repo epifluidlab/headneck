@@ -8,23 +8,16 @@ setwd('/Users/ravibandaru/Downloads')
 d <- read.csv("./survival_data.csv")
 
 df_patient <- data.frame(
-  id            = d[,1],
-  age           = d$Age,
-  gender        = ifelse(d$Gender == "Male", 1, 2),
-  ethnicity     = as.integer(as.factor(d$Ethnicity)),
-  diagnosis     = as.integer(as.factor(d$Diagnosis)),
-  hpv           = ifelse(d$HPV == "Unknown", 1, 2),
-  smoking       = ifelse(d$Smoking == "No", 1, 2),
-  alcohol       = ifelse(d$Alcohol == "No", 1, 2),
-  response      = ifelse(d$Predicted.Treatment.Response == "Responder", 1, 2),
+  response      = ifelse(d$REPINST_Predictions == "Responder", 1, 2),
   ihc           = ifelse(d$PDL1.IHC == ">20", 1,
                          ifelse(d$PDL1.IHC == "1-19", 2, 3)),
   tf            = ifelse(d$Tumor.Fraction == "Low Tumor Fraction", 1, 2),
   event_dfs     = as.integer(ifelse(d$E_Relapse,1,0)),
-  time_to_event_dfs = as.integer(d$Relapse.Months * 30),
+  time_to_event_dfs = as.integer(d$Relapse.Months..Adjuvant. * 30.5),
   event_os      = as.integer(ifelse(d$E_Survival,1,0)),
-  time_to_event_os = as.integer(d$Survival.Months * 30)
+  time_to_event_os = as.integer(d$Survival.Months..Adjuvant. * 30.5)
 )
+
 
 predictor_settings <- list(
   response = list(
