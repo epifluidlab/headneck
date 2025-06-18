@@ -10,10 +10,11 @@
 | [F4](./Main_Figures/F4) | [SF4](./Supplementary_Figures/SF4)   | [ST4](./Supplementary_Tables/ST4) |
 | [F5](./Main_Figures/F5) | [SF5](./Supplementary_Figures/SF5)   | [ST5](./Supplementary_Tables/ST5) |
 | [T1](./Main_Tables/T1)  | [SF6](./Supplementary_Figures/SF6)   | [ST6](./Supplementary_Tables/ST6) |
-|                        | [SF7](./Main_Figures/F4)   | [ST7](./Supplementary_Tables/ST7) |
-|                        | [SF8-11](./Main_Figures/F4) |                            |
-|                        | [SF12](./Supplementary_Figures/SF12) |                                |
-|                        | [SF13](./Supplementary_Figures/SF13) |                                |
+|                        | [SF7](./Supplementary_Figures/SF7)   |                            |
+|                        | [SF8](./Supplementary_Figures/SF8)   |                            |
+|                        | [SF9](./Supplementary_Figures/SF9)   |                            |
+|                        | [SF10](./Supplementary_Figures/SF10) |                            |
+|                        | [SF11](./Supplementary_Figures/SF11) |                            |
 
 
 ### Citation
