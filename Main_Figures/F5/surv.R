@@ -3,6 +3,7 @@ library(survival)
 library(ggplot2)
 library(gridExtra)
 library(scales)
+library(grid)
 
 setwd('/Users/ravibandaru/Downloads')
 d <- read.csv("./SURVIVAL_DATA.csv")
@@ -14,13 +15,13 @@ df_patient <- data.frame(
   tf = ifelse(d$Tumor.Fraction == "Low Tumor Fraction", 1, 2),
   stratification= factor(ifelse(d$Stratification == "Intermediate", 1, 2), labels = c("Intermediate", "High")),
   event_dfs_new = as.integer(ifelse(d$E_Relapse, 1, 0)),
-  time_dfs_new = as.integer(d$Relapse.Months..Adjuvant. * 30.5),
+  time_dfs_new = as.numeric(d$Relapse.Months..Adjuvant.),
   event_os_new = as.integer(ifelse(d$E_Survival, 1, 0)),
-  time_os_new = as.integer(d$Survival.Months..Adjuvant. * 30.5),
+  time_os_new = as.numeric(d$Survival.Months..Adjuvant.),
   event_dfs_old = as.integer(ifelse(d$OLD.E_Relapse, 1, 0)),
-  time_dfs_old = as.integer(d$OLD.Relapse.Months..Adjuvant. * 30.5),
+  time_dfs_old = as.numeric(d$OLD.Relapse.Months..Adjuvant.),
   event_os_old = as.integer(ifelse(d$OLD.E_Survival, 1, 0)),
-  time_os_old = as.integer(d$OLD.Survival.Months..Adjuvant. * 30.5)
+  time_os_old = as.numeric(d$OLD.Survival.Months..Adjuvant.)
 )
 
 predictor_settings <- list(
@@ -33,7 +34,7 @@ predictor_settings <- list(
     filename = "Response"
   ),
   stratification = list(
-    legend = c("Intermediate (I)", "High (HI)"),  # Fixed the typo here
+    legend = c("Intermediate (I)", "High (HI)"),
     risk_labels = c("I", "HI"),
     palette = c("#15B01A", "#DC143C"),
     title_dfs = "Disease-Free Survival (Risk Stratification)",
@@ -94,14 +95,15 @@ create_km_plot <- function(surv_obj, group, colors, labels, risk_labels, title, 
   names(colors) <- group_levels
   
   p_main <- ggplot(surv_data, aes(x = time, y = surv, color = group)) +
-    geom_step(size = 0.8) +
+    geom_step(linewidth = 0.8) +
     scale_color_manual(values = colors, labels = labels, breaks = group_levels) +
     scale_y_continuous(limits = c(0, 1), labels = percent_format(), 
                        breaks = seq(0, 1, 0.2)) +
-    scale_x_continuous(limits = c(0, max_time), expand = c(0.02, 0)) +
+    scale_x_continuous(limits = c(0, max_time), expand = c(0.02, 0),
+                       breaks = time_points, labels = as.character(time_points)) +
     labs(
       title = title,
-      x = "Time (Days)",
+      x = "Time (Months)",
       y = "Survival Probability",
       color = ""
     ) +
@@ -114,15 +116,15 @@ create_km_plot <- function(surv_obj, group, colors, labels, risk_labels, title, 
       legend.text = element_text(size = 9),
       legend.position = "bottom",
       legend.margin = margin(t = -5),
-      axis.line = element_line(color = "black", size = 0.5),
-      axis.ticks = element_line(color = "black", size = 0.5),
+      axis.line = element_line(color = "black", linewidth = 0.5),
+      axis.ticks = element_line(color = "black", linewidth = 0.5),
       plot.margin = margin(t = 10, r = 10, b = 5, l = 10)
     ) +
     guides(color = guide_legend(override.aes = list(size = 1.5)))
   
   p_main <- p_main + 
     annotate("rect", xmin = max_time * 0.75, xmax = max_time * 1.05,
-             ymin = 0.9, ymax = 1, fill = "white", color = "black", size = 0.5) +
+             ymin = 0.9, ymax = 1, fill = "white", color = "black", linewidth = 0.5) +
     annotate("text", x = max_time * 0.9, y = 0.95, 
              label = pval_text, size = 3.5, fontface = "bold")
   
@@ -168,13 +170,13 @@ create_km_plot <- function(surv_obj, group, colors, labels, risk_labels, title, 
       axis.text.y = element_text(size = 8, color = "black", face = "bold"),
       axis.line.x = element_blank(),
       axis.line.y = element_blank(),
-      axis.ticks.x = element_line(color = "black", size = 0.5),
+      axis.ticks.x = element_line(color = "black", linewidth = 0.5),
       axis.ticks.y = element_blank(),
       plot.margin = margin(t = 0, r = 10, b = 5, l = 10),
       panel.background = element_rect(fill = "white", color = NA)
     ) +
     geom_hline(yintercept = seq(1.5, length(risk_labels) - 0.5, 1), 
-               color = "black", size = 0.3)
+               color = "black", linewidth = 0.3)
   
   risk_label <- textGrob("Number at Risk", x = 0, hjust = 0, 
                          gp = gpar(fontsize = 9, fontface = "bold"))
@@ -198,11 +200,13 @@ for (pred in names(predictor_settings)) {
   group <- factor(df_patient[[pred]], labels = setting$legend)
   
   pdf(paste0("KM_DFS_", setting$filename, "_NEW.pdf"), width = 4.5, height = 4.5)
-  p1 <- create_km_plot(dfs_surv, group, setting$palette, setting$legend, setting$risk_labels, setting$title_dfs, max_time = 2000, time_points = c(0, 500, 1000, 1500, 2000))
+  p1 <- create_km_plot(dfs_surv, group, setting$palette, setting$legend, setting$risk_labels, 
+                       setting$title_dfs, max_time = 72, time_points = c(0, 12, 24, 36, 48, 60, 72))
   dev.off()
   
   pdf(paste0("KM_OS_", setting$filename, "_NEW.pdf"), width = 4.5, height = 4.5)
-  p2 <- create_km_plot(os_surv, group, setting$palette, setting$legend, setting$risk_labels, setting$title_os, max_time = 2000, time_points = c(0, 500, 1000, 1500, 2000))
+  p2 <- create_km_plot(os_surv, group, setting$palette, setting$legend, setting$risk_labels, 
+                       setting$title_os, max_time = 72, time_points = c(0, 12, 24, 36, 48, 60, 72))
   dev.off()
 }
 
@@ -214,10 +218,12 @@ for (pred in names(predictor_settings)) {
   group <- factor(df_patient[[pred]], labels = setting$legend)
   
   pdf(paste0("KM_DFS_", setting$filename, "_OLD.pdf"), width = 4.5, height = 4.5)
-  p1 <- create_km_plot(dfs_surv, group, setting$palette, setting$legend, setting$risk_labels, setting$title_dfs, max_time = 1500, time_points = c(0, 500, 1000, 1500))
+  p1 <- create_km_plot(dfs_surv, group, setting$palette, setting$legend, setting$risk_labels, 
+                       setting$title_dfs, max_time = 60, time_points = c(0, 12, 24, 36, 48, 60))
   dev.off()
   
   pdf(paste0("KM_OS_", setting$filename, "_OLD.pdf"), width = 4.5, height = 4.5)
-  p2 <- create_km_plot(os_surv, group, setting$palette, setting$legend, setting$risk_labels, setting$title_os, max_time = 1500, time_points = c(0, 500, 1000, 1500))
+  p2 <- create_km_plot(os_surv, group, setting$palette, setting$legend, setting$risk_labels, 
+                       setting$title_os, max_time = 60, time_points = c(0, 12, 24, 36, 48, 60))
   dev.off()
 }
