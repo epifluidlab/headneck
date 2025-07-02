@@ -13,17 +13,19 @@ df_patient <- data.frame(
   ihc = ifelse(d$PDL1.IHC == ">20", 1,
                ifelse(d$PDL1.IHC == "1-19", 2, 3)),
   tf = ifelse(d$Tumor.Fraction == "Low Tumor Fraction", 1, 2),
-  stratification= factor(ifelse(d$Stratification == "Intermediate", 1, 2), labels = c("Intermediate", "High")),
+  stratification = factor(ifelse(d$Stratification == "Intermediate", 1, 2),
+                          labels = c("Intermediate", "High")),
   event_dfs_new = as.integer(ifelse(d$E_Relapse, 1, 0)),
-  time_dfs_new = as.numeric(d$Relapse.Months..Adjuvant.),
+  time_dfs_new = as.numeric(d$Relapse.Months..Neoadjuvant.),
   event_os_new = as.integer(ifelse(d$E_Survival, 1, 0)),
-  time_os_new = as.numeric(d$Survival.Months..Adjuvant.),
+  time_os_new = as.numeric(d$Survival.Months..Neoadjuvant.),
   event_dfs_old = as.integer(ifelse(d$OLD.E_Relapse, 1, 0)),
-  time_dfs_old = as.numeric(d$OLD.Relapse.Months..Adjuvant.),
+  time_dfs_old = as.numeric(d$OLD.Relapse.Months..Neoadjuvant.),
   event_os_old = as.integer(ifelse(d$OLD.E_Survival, 1, 0)),
-  time_os_old = as.numeric(d$OLD.Survival.Months..Adjuvant.)
+  time_os_old = as.numeric(d$OLD.Survival.Months..Neoadjuvant.)
 )
 
+# Drop rows with any NA values
 df_patient <- na.omit(df_patient)
 
 predictor_settings <- list(

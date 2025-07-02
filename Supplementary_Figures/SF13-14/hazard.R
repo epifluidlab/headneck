@@ -28,14 +28,14 @@ df_patient <- data.frame(
   tf            = factor(ifelse(d$Tumor.Fraction == "Low Tumor Fraction", 1, 2), labels = c("Low", "High")),
   
   event_dfs_new = as.integer(ifelse(d$E_Relapse, 1, 0)),
-  time_dfs_new  = as.integer(d$Relapse.Months..Adjuvant. * 30.5),
+  time_dfs_new  = as.integer(d$Relapse.Months..Neoadjuvant. * 30.5),
   event_os_new  = as.integer(ifelse(d$E_Survival, 1, 0)),
-  time_os_new   = as.integer(d$Survival.Months..Adjuvant. * 30.5),
+  time_os_new   = as.integer(d$Survival.Months..Neoadjuvant. * 30.5),
   
   event_dfs_old = as.integer(ifelse(d$OLD.E_Relapse, 1, 0)),
-  time_dfs_old  = as.integer(d$OLD.Relapse.Months..Adjuvant. * 30.5),
+  time_dfs_old  = as.integer(d$OLD.Relapse.Months..Neoadjuvant. * 30.5),
   event_os_old  = as.integer(ifelse(d$OLD.E_Survival, 1, 0)),
-  time_os_old   = as.integer(d$OLD.Survival.Months..Adjuvant. * 30.5)
+  time_os_old   = as.integer(d$OLD.Survival.Months..Neoadjuvant. * 30.5)
 )
 
 df_patient <- na.omit(df_patient)
@@ -88,7 +88,7 @@ perform_cox_analysis <- function(df, event_col, time_col, vars) {
       HR_upper = exp(asymp.LCL),
       p_value  = p.value
     )
-
+  
   hr_stratification <- contrast(emm_strat, method = "pairwise") %>%
     summary(infer = TRUE) %>%
     as.data.frame() %>%
