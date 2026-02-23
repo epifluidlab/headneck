@@ -77,6 +77,7 @@ class HNSCCFeatureHandler:
 			filename = os.path.basename(file)
 			col_name = filename.replace(suffix, '')
 			df = pd.read_csv(file, delimiter='\t', usecols=[0, 1, 2, feature_col_index], skiprows=skip_rows, header=None, names=['chr', 'start', 'end', 'feature'])
+			df = df[df['chr'] != 'chrX'] # NO CHRX THIS IS HARDCODED!!
 			if na_value is not None:
 				df['feature'] = df['feature'].replace(na_value, np.nan)
 			df['feature'] = df['feature'].astype(float)
