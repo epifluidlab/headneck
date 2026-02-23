@@ -1,0 +1,1 @@
+The study relies on low-coverage WGS (~1.9x), which inherently limits resolution at critical regulatory elements. The authors should outline how deeper sequencing could improve rMDS granularity and biological interpretation. It is essential to demonstrate, either through simulation or empirical analysis, how sequencing depth impacts rMDS calculation and its discriminatory power.
