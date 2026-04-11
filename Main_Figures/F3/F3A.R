@@ -117,7 +117,27 @@ md_glob  <- rowMeans(frag_mat[, metadata$Group=="Responder"]) -
             rowMeans(frag_mat[, metadata$Group=="Non-Responder"])  
 vol4 <- attach_qval(res_glob, md_glob)
 
-# ── 10) Prepare volcano data frames (using q-values) ──
+# ── 10) Export per-sample signals after covariate correction ──
+# Keep biological Group effect while regressing out technical/clinical covariates.
+cov_design <- model.matrix(~ Age + Race + Gender + Ethnicity + Diagnosis + Smoking + Alcohol,
+                           data=metadata)
+covariates_mat <- cov_design[, colnames(cov_design) != "(Intercept)", drop=FALSE]
+group_design <- model.matrix(~ Group, data=metadata)
+
+frag_mat_cov_corrected <- removeBatchEffect(
+  frag_mat,
+  covariates = covariates_mat,
+  design     = group_design
+)
+
+cov_corrected_df <- data.frame(bin = rownames(frag_mat_cov_corrected),
+                               frag_mat_cov_corrected,
+                               check.names = FALSE)
+write.csv(cov_corrected_df,
+          file = "F3A.covariate_corrected_signals_per_sample.csv",
+          row.names = FALSE)
+
+# ── 11) Prepare volcano data frames (using q-values) ──
 prep_vol <- function(df) {
   df$logQ   <- -log10(df$qval)
   df$signif <- "ns"
@@ -131,7 +151,7 @@ vol2 <- prep_vol(vol2)
 vol3 <- prep_vol(vol3)
 vol4 <- prep_vol(vol4)
 
-# ── 11) Volcano‐plotting function and plotting ──
+# ── 12) Volcano‐plotting function and plotting ──
 plot_vol <- function(vol, title) {
   ggplot(vol, aes(x=meanDiff, y=logQ, color=signif)) +
     geom_point(alpha=0.6, size=1) +
@@ -147,7 +167,7 @@ p2 <- plot_vol(vol2, "Day 0")
 p3 <- plot_vol(vol3, "Adj Wk1")
 p4 <- plot_vol(vol4, "Global (all timepoints)")
 
-# ── 12) Save to PDF ──
+# ── 13) Save to PDF ──
 #pdf("F3A.pdf", width=5, height=5)
 print(p1)
 print(p2)
@@ -156,7 +176,7 @@ print(p4)
 dev.off()
 write.csv(vol4, file = "F3A.csv", row.names = FALSE)
 
-# ── 13) Write BED files for global significant regions at multiple q-value cutoffs ──
+# ── 14) Write BED files for global significant regions at multiple q-value cutoffs ──
 threshold <- 0.1
 regs <- rownames(vol4)[vol4$qval < threshold]
 parts <- strsplit(regs, ":", fixed = TRUE)
