@@ -26,7 +26,7 @@
 |                        | [SF20-21](./Supplementary_Figures/SF20-21) |                            |
 
 ### Citation
-Bandaru R, Fu H, Zheng H, Liang J, Wang L, Gulati S, Hinrichs BH, Teng M, Zhang B, Kocherginsky M, Lin D, Hildeman DA, Worden FP, Old MO, Dunlap NE, Kaczmar JM, Gillison M, El-Gamal DA, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2026). *Genome-Wide Variations of End Motif in Cell-Free DNA Fragments Distinguish Immunotherapy Responders from Non-Responders in Head and Neck Cancer: A Multi-Institute Prospective Study*. **medRxiv Preprint**. [![DOI](https://img.shields.io/badge/DOI-10.64898/2026.03.24.26348354-pink?style=flat-square)](https://doi.org/10.64898/2026.03.24.26348354)
+Bandaru R, Fu H, Zheng H, Liang J, Wang L, Gulati S, Hinrichs BH, Teng M, Zhang B, Kocherginsky M, Lin D, Hildeman DA, Worden FP, Old MO, Dunlap NE, Kaczmar JM, Gillison M, El-Gamal DA, Wise-Draper T<sup>#</sup>, Liu Y<sup>#</sup> (2026). *Genome-Wide Variations of End Motif in Cell-Free DNA Fragments Distinguish Immunotherapy Responders from Non-Responders in Head and Neck Cancer: A Multi-Institute Prospective Study*. **J Clin Invest**. [![DOI](https://img.shields.io/badge/DOI-10.1172/JCI196284-pink?style=flat-square)](https://doi.org/10.1172/JCI196284)
 
 ### Contact
 - Ravi Bandaru: ravi.bandaru@northwestern.edu
